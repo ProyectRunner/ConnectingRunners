@@ -4,14 +4,14 @@ const OBJECTIVES   = require('./running-objetives');
 
 const userSchema = new Schema({
   name: String,
-  username: { type: String, required: true },
-  password: { type: String, required: true },
-  email: { type: String},
+  username: {type: String, required: true },
+  password: {type: String, required: true },
+  email: {type: String, require: true},
   objetives: { type: String, enum: OBJECTIVES },
-  events : { type: Schema.Types.ObjectId, ref: 'Event'},
+  events : [{ type: Schema.Types.ObjectId, ref: 'Event', default: " "}],
   aboutMe: String,
   city: String,
-  comment: { type: Schema.Types.ObjectId, ref: 'Comment'},
+  comment: [{type: Schema.Types.ObjectId, ref: 'Comment', default: " "}],
   follow: { type: Number, default: 0 },
   followers: { type: Number, default: 0 },
   imgUrl: { type: String, default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250" }
