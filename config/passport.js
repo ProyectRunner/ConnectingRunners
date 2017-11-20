@@ -64,7 +64,7 @@ module.exports = function() {
     }, (err, user) => {
       if (err) {
         return next(err, {
-          message: "RINGG: Donde vas error?"
+          message: "RINGG: Donde vas error?JAJJA DEVUELVETE"
         })
       }
       if (!user) {
