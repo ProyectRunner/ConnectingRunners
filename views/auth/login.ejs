@@ -1,25 +1,25 @@
 <form action="/auth/login" method="POST">
   <div class="field">
-    <label for="username">Usuario:</label><br><br>
-    <input type="text" name="username">
+    <label for="username">Username:</label><br>
+    <input type="text" name="username" placeholder="Insert username">
   </div>
-  <br><br>
+  <br>
   <div class="field">
-    <label for="password">Password:</label><br><br>
-    <input type="password" name="password">
+    <label for="password">Password:</label><br>
+    <input type="password" name="password" placeholder="Insert password">
   </div>
   <% if (typeof message != "undefined") { %>
   <div class="error-message"><%= message %></div>
 <% } %>
   <br>
 
-  <div id="create">
-    <input type="submit" value="Entrar">
+  <div id="login">
+    <button>Login</button>
   </div>
   <div class="check-login">
     <p class="account-message">
-      No tienes cuenta?
-      <a class="click" href="/auth/signup">Crea cuenta</a>
+      Don't have an account?
+      <a class="click" href="/auth/signup">Crate account</a>
     </p>
   </div>
 </form>

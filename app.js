@@ -1,10 +1,10 @@
-const app = require('express')()
-require('./config/passport')()
-require('./config/express')(app)
+const app = require('express')();
+require('./config/passport')();
+require('./config/express')(app);
 
-const index = require('./routes/index')
-app.use('/', index)
+const index = require('./routes/index');
+app.use('/', index);
 
-require('./config/error-handler')(app)
+require('./config/error-handler')(app);
 
-module.exports = app
+module.exports = app;

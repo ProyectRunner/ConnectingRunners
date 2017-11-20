@@ -1,28 +1,50 @@
 <form action="/auth/signup" method="post" id="form-container">
   <div>
-    <label for="username">Username:</label><br><br>
-    <input id="username" type="text" name="username" placeholder="Pablo Escobar">
-  </div>
-  <br>
-  <div>
-    <label for="mail">E-mail:</label><br><br>
-    <input id="mail" type="mail" name="email" placeholder="blancanieves@colombia.com">
-  </div>
-  <br>
-  <div>
-    <label for="password">Contraseña:</label><br><br>
-    <input id="password" type="password" name="password" placeholder="Contraseña">
-  </div>
+    <label for="name">Name:</label><br>
+    <input id="name" type="text" name="name" placeholder="Insert name here">
+    <br><br>
 
-  <br>
-  <div id="create">
-    <button>Crear cuenta</button>
-  </div>
+    <label for="username">Username:</label><br>
+    <input id="username" type="text" name="username" placeholder="Insert username">
 
-  <div>
-    <p>
-      Tienes una cuenta?
-      <a href="/auth/login"> Login</a>
-    </p>
+    <br><br>
+    <label for="mail">E-mail:</label><br>
+    <input id="mail" type="text" name="email" placeholder="example@example.com">
+    <br><br>
+
+    <label for="password">Password:</label><br>
+    <input id="password" type="text" name="password" placeholder="Insert password">
+    <br><br>
+
+    <label for="objective" >Purpose:</label><br>
+    <select name="objective">
+      <option value="" disabled selected>Select your purpose</option>
+      <option value="empezar a correr">Start running</option>
+      <option value="10K">10K</option>
+      <option value="media maratón">Half marathon</option>
+      <option value="maratón">Marathon</option>
+      <option value="trail">Trail</option>
+      <option value="correr por diversión">Run for fun</option>
+    </select>
+    <br><br>
+
+    <label for="aboutMe">Tell us about yourself:</label><br>
+    <input id="aboutMe" type="aboutMe" name="aboutMe" placeholder="Description">
+    <br><br>
+
+    <label for="city">City:</label><br>
+    <input id="city" type="city" name="city" placeholder="Insert city you live in">
+    <br><br>
+
+    <label for="imgUrl">Image Url:</label><br>
+    <input id="imgUrl" type:"text" name="imageUrl" placeholder="URL of your profile image">
+    <br><br>
+
+    <div id="create">
+    <button>Create account</button>
+    </div>
+
+
+    <p>Already have an account? <a href="/auth/login">Login</a></p>
   </div>
 </form>

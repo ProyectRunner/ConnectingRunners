@@ -4,23 +4,21 @@
     <meta charset="utf-8">
     <title>Connecting Runners</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   </head>
   <body>
     <nav>
       <h2> Connecting Runners</h2>
-      <a class="logo" href="/">Go back home</a>
-
       <% if(!user){ %>
 
-        <p style="color: red"><b>You need to Login</b></p>
-        <br>
-        <li><a class="login"href="/auth/signup">Signup</a></li>
-        <li><a class="login"href="/auth/login">Login</a></li>
+        <p style="color: red"><b>You are not logged in</b></p>
+
+        <a class="login"href="/auth/signup">Signup</a>
+        <a class="login"href="/auth/login">Login</a>
 
       <% }else{ %>
 
-        <p style="color: green"><b>Hola <%= user.username %>!</b></p>
-        <br>
+        <p style="color: green"><b>Welcome <%= user.username %>!</b></p>
         <a class="login"href="/auth/logout">Logout</a>
       <% } %>
     </nav>

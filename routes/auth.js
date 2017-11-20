@@ -6,6 +6,7 @@ const bcryptSalt = 10;
 const ensureLogin = require("connect-ensure-login");
 const AuthController = require("../controllers/AuthController");
 const User = require("../models/User");
+const multer  = require('multer');
 
 authRoutes.get("/signup", AuthController.signup);
 authRoutes.post('/signup', passport.authenticate('local-signup', {
