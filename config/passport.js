@@ -10,7 +10,6 @@ module.exports = function() {
   })
 
   passport.deserializeUser((id, cb) => {
-
     User.findById(id, (err, user) => {
       if (err) {
         return cb(err);
@@ -18,6 +17,29 @@ module.exports = function() {
       cb(null, user);
     });
   })
+
+  passport.use('local-login', new LocalStrategy((username, password, next) => {
+    User.findOne({
+      username
+    }, (err, user) => {
+      if (err) {
+        return next(err, {
+          message: "Error, ingrese usuario y contraseña correctas"
+        });
+      }
+      if (!user) {
+        return next(null, false, {
+          message: "Usuario Incorrecto"
+        });
+      }
+      if (!bcrypt.compareSync(password, user.password)) {
+        return next(null, false, {
+          message: "Contraseña no es correcta"
+        });
+      }
+      return next(null, user);
+    });
+  }));
 
   passport.use('local-signup', new LocalStrategy({
       passReqToCallback: true
@@ -57,27 +79,4 @@ module.exports = function() {
       });
     }));
 
-  passport.use('local-login', new LocalStrategy((username, password, next) => {
-    console.log('Holaaaa');
-    User.findOne({
-      username
-    }, (err, user) => {
-      if (err) {
-        return next(err, {
-          message: "RINGG: Donde vas error?JAJJA DEVUELVETE"
-        })
-      }
-      if (!user) {
-        return next(null, false, {
-          message: "RINGG: Usuario Incorrecto"
-        })
-      }
-      if (!bcrypt.compareSync(password, user.password)) {
-        return next(null, false, {
-          message: "RINGG: Esa contraseña no es correcta"
-        })
-      }
-      return next(null, user);
-    });
-  }));
 }

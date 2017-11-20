@@ -2,25 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>HOLA IRONHACKER! ;)</title>
+    <title>Connecting Runners</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
     <nav>
-      <a class="logo" href="/">VOLVER A INDEX PAGE</a>
+      <h2> Connecting Runners</h2>
+      <a class="logo" href="/">Go back home</a>
 
       <% if(!user){ %>
 
-        <p style="color: red"><b>NO HAY USUARIO LOGUEADO</b></p>
+        <p style="color: red"><b>You need to Login</b></p>
         <br>
-        <li><a class="login"href="/auth/signup">SIGN UP</a></li>
-        <li><a class="login"href="/auth/login"> LOGIN</a></li>
+        <li><a class="login"href="/auth/signup">Signup</a></li>
+        <li><a class="login"href="/auth/login">Login</a></li>
 
       <% }else{ %>
 
-        <p style="color: green"><b>USUARIO LOGUEADO: <%= user.username %></b></p>
+        <p style="color: green"><b>Hola <%= user.username %>!</b></p>
         <br>
-        <li><a class="login"href="/auth/logout">LOG OUT</a></li>
+        <a class="login"href="/auth/logout">Logout</a>
       <% } %>
     </nav>
     <br>

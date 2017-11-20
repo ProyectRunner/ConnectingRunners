@@ -1,13 +1,16 @@
 <form action="/auth/login" method="POST">
   <div class="field">
-    <label for="username">USUARIO:</label><br><br>
+    <label for="username">Usuario:</label><br><br>
     <input type="text" name="username">
   </div>
   <br><br>
   <div class="field">
-    <label for="password">password:</label><br><br>
+    <label for="password">Password:</label><br><br>
     <input type="password" name="password">
   </div>
+  <% if (typeof message != "undefined") { %>
+  <div class="error-message"><%= message %></div>
+<% } %>
   <br>
 
   <div id="create">
@@ -15,8 +18,8 @@
   </div>
   <div class="check-login">
     <p class="account-message">
-      No tienes una cuenta pardillo?
-      <a class="click" href="/auth/signup">Crea una</a>
+      No tienes cuenta?
+      <a class="click" href="/auth/signup">Crea cuenta</a>
     </p>
   </div>
 </form>
