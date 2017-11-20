@@ -4,9 +4,10 @@ const OBJECTIVES   = require('./running-objetives');
 
 const userSchema = new Schema({
   name: String,
-  username: {type: String, required: true },
-  password: {type: String, required: true },
-  email: {type: String, require: true},
+
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  email: { type: String, required: true},
   objetives: { type: String, enum: OBJECTIVES },
   events : [{ type: Schema.Types.ObjectId, ref: 'Event', default: " "}],
   aboutMe: String,
