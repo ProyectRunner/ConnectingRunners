@@ -7,7 +7,7 @@ const userSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
   email: { type: String, required: true },
-  objetives: { type: String, enum: OBJECTIVES, required: true },
+  objetives: { type: String, enum: OBJECTIVES },
   events : { type: Schema.Types.ObjectId, ref: 'Event'},
   aboutMe: String,
   city: String,

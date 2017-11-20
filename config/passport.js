@@ -67,7 +67,7 @@ module.exports = function() {
               email,
               password: hashPass
             });
-
+            console.log(newUser);
             newUser.save((err) => {
               if (err) {
                 next(err);
