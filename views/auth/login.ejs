@@ -1,0 +1,22 @@
+<form action="/auth/login" method="POST">
+  <div class="field">
+    <label for="username">USUARIO:</label><br><br>
+    <input type="text" name="username">
+  </div>
+  <br><br>
+  <div class="field">
+    <label for="password">password:</label><br><br>
+    <input type="password" name="password">
+  </div>
+  <br>
+
+  <div id="create">
+    <input type="submit" value="Entrar">
+  </div>
+  <div class="check-login">
+    <p class="account-message">
+      No tienes una cuenta pardillo?
+      <a class="click" href="/auth/signup">Crea una</a>
+    </p>
+  </div>
+</form>

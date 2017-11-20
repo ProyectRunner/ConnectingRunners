@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HOLA IRONHACKER! ;)</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="/">VOLVER A INDEX PAGE</a>
+
+      <% if(!user){ %>
+
+        <p style="color: red"><b>NO HAY USUARIO LOGUEADO</b></p>
+        <br>
+        <li><a class="login"href="/auth/signup">SIGN UP</a></li>
+        <li><a class="login"href="/auth/login"> LOGIN</a></li>
+
+      <% }else{ %>
+
+        <p style="color: green"><b>USUARIO LOGUEADO: <%= user.username %></b></p>
+        <br>
+        <li><a class="login"href="/auth/logout">LOG OUT</a></li>
+      <% } %>
+    </nav>
+    <br>
+    <%- body -%>
+  </body>
+</html>
