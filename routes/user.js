@@ -13,21 +13,6 @@ router.get('/:id/edit', (req, res, next) => {
     res.render('profile/edit');
   });
 
-// router.post('/', (req, res, next) => {
-//   const {name,username,email,objectives,aboutMe,city} = req.body;
-//   const updates = { name,username,email,objectives,aboutMe,city,
-//     imgUrl: `uploads/${req.file.filename}`,
-//      };
-//
-//
-//   User.findByIdAndUpdate(userId, updates, (error, user) => {
-//   return res.redirect('/');
-//   });
-//
-// });
-
-
-
 router.post('/profile/:id/edit', [ensureLoggedIn('/auth/login'), upload.single('imgUrl')], (req, res, next) => {
 
   const {name,username,email,objectives,aboutMe,city} = req.body;
