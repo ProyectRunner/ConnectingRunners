@@ -1,49 +1,51 @@
 <form action="/auth/signup" method="post" id="form-container" enctype="multipart/form-data">
   <div>
-    <label for="name">Name:</label><br>
-    <input id="name" type="text" name="name" placeholder="Insert name here">
+    <label for="name">Nombre:</label><br>
+    <input id="name" type="text" name="name" placeholder="Usain Bolt">
     <br><br>
 
-    <label for="username">Username:</label><br>
-    <input id="username" type="text" name="username" placeholder="Insert username">
+    <label for="username">Usuario:</label><br>
+    <input id="username" type="text" name="username" placeholder="Lightning Bolt">
 
     <br><br>
     <label for="mail">E-mail:</label><br>
-    <input id="mail" type="text" name="email" placeholder="example@example.com">
+    <input id="mail" type="text" name="email" placeholder="usain@bolt.com">
     <br><br>
 
-    <label for="password">Password:</label><br>
-    <input id="password" type="password" name="password" placeholder="Insert password">
+    <label for="password">Contraseña:</label><br>
+    <input id="password" type="password" name="password" placeholder="Shhhh...">
     <br><br>
 
-    <label for="objective" >Purpose:</label><br>
+    <label for="objective" >Objetivo:</label><br>
     <select name="objective">
-      <option value="" disabled selected >Select your purpose</option>
-      <option value="empezar a correr">Start running</option>
+      <option value="" disabled selected >Seleccionar objetivo</option>
+      <option value="empezar a correr">Empezar a correr</option>
       <option value="10K">10K</option>
-      <option value="media maratón">Half marathon</option>
-      <option value="maratón">Marathon</option>
+      <option value="media maratón">Medio maratón</option>
+      <option value="maratón">Maratón</option>
       <option value="trail">Trail</option>
-      <option value="correr por diversión">Run for fun</option>
+      <option value="correr por diversión">Diversión</option>
     </select>
     <br><br>
 
-    <label for="aboutMe">Tell us about yourself:</label><br>
-    <input id="aboutMe" type="aboutMe" name="aboutMe" placeholder="Description">
+    <label for="aboutMe">Cuéntanos sobre ti:</label><br>
+    <input id="aboutMe" type="aboutMe" name="aboutMe" placeholder="Sprinter">
     <br><br>
 
-    <label for="city">City:</label><br>
-    <input id="city" type="city" name="city" placeholder="Insert city you live in">
+    <label for="city">Ciudad:</label><br>
+    <input id="city" type="city" name="city" placeholder="Madrid">
     <br><br>
 
     <input type="file" name="imgUrl">
     <br><br>
 
     <div id="create">
-    <button>Create account</button>
+    <button>Crear cuenta</button>
     </div>
 
 
-    <p>Already have an account? <a href="/auth/login">Login</a></p>
+    <p>Ya tienes una cuenta? <a href="/auth/login">Login</a> <a class="click" href="/">Regresar</a></p>
+
+
   </div>
 </form>

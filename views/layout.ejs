@@ -11,16 +11,16 @@
       <h2> Connecting Runners</h2>
       <% if(!user){ %>
 
-        <p style="color: red"><b>You are not logged in</b></p>
+        <p style="color: red"><b>Debes hacer Login</b></p>
 
         <a class="login"href="/auth/signup">Signup</a>
         <a class="login"href="/auth/login">Login</a>
 
       <% }else{ %>
 
-        <p style="color: green"><b>Welcome <%= user.name %>!</b></p>
-        <a class="profile"href="/profile">Profile</a>
-        <a class="login"href="/auth/logout">Logout</a>
+        <p style="color: green"><b>Hola <%= user.username %>!</b></p>
+        <a class="profile"href="/profile">Perfil</a>
+        <a class="login"href="/auth/logout">Salir</a>
       <% } %>
     </nav>
     <br>
