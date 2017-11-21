@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Schema   = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema   = mongoose.Schema;
 
 const relUserEventSchema = new Schema({
   eventId: { type: Schema.Types.ObjectId, ref: 'Event'},
@@ -9,7 +9,7 @@ const relUserEventSchema = new Schema({
     createdAt: 'created_at',
     updatedAt: 'updated_at'
   }
-})
+});
 
-const RelUserEvent = mongoose.model('RelUserEvent', relUserEventSchema)
-module.exports = RelUserEvent
+const RelUserEvent = mongoose.model('RelUserEvent', relUserEventSchema);
+module.exports = RelUserEvent;

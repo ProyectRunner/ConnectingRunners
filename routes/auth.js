@@ -11,8 +11,6 @@ const upload = multer({ dest: './public/uploads/' });
 
 authRoutes.get("/signup", AuthController.signup);
 
-
-
 authRoutes.post('/signup', upload.single('imgUrl'), passport.authenticate('local-signup', {
   successRedirect : '/auth/login',
   failureRedirect : '/auth/signup'

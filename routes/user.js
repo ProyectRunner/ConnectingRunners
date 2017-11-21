@@ -7,7 +7,7 @@ const {ensureLoggedIn} = require ('connect-ensure-login');
 
 const upload = multer ({dest: './public/uploads'});
 
-router.get('/profile', profileController.profileGet);
+router.get('/profile', ensureLoggedIn('/') ,profileController.profileGet);
 
 router.get('/:id/edit', (req, res, next) => {
     res.render('profile/edit');
@@ -18,14 +18,12 @@ router.post('/profile/:id/edit', [ensureLoggedIn('/auth/login'), upload.single('
   const {name,username,email,objectives,aboutMe,city} = req.body;
 
   const updates = { name,username,email,objectives,aboutMe,city,
-      imgUrl: `uploads/${req.file.filename}`,
+      imgUrl: req.file.filename,
        };
 
   User.findByIdAndUpdate(req.params.id, updates)
   .then(user => res.redirect(`/profile`))
   .catch(e => {
-    console.log(e);
-    console.log("PROFILE UPDATED");
     res.render('profile/edit', {
       user:updates,
       error: e.message,

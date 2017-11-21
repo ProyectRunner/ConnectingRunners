@@ -29,17 +29,14 @@ module.exports = function() {
     }, (err, user) => {
       if (err) {
         return next(err, {
-          message: "Error, ingrese usuario y contraseña correctas"
         });
       }
       if (!user) {
         return next(null, false, {
-          message: "Usuario Incorrecto"
         });
       }
       if (!bcrypt.compareSync(password, user.password)) {
         return next(null, false, {
-          message: "Contraseña no es correcta"
         });
       }
       return next(null, user);
@@ -50,6 +47,14 @@ module.exports = function() {
       passReqToCallback: true
     },
     (req, username, password, next) => {
+      console.log(req.body);
+      console.log(req.file);
+      let imgUrl = '';
+      if (req.file) {
+        imgUrl = req.file.filename;
+      } else {
+        imgUrl = 'https://jsns.eu/components/com_jsn/assets/img/default.jpg';
+      }
       process.nextTick(() => {
         User.findOne({
           'username': username
@@ -66,24 +71,24 @@ module.exports = function() {
               username,
               password,
               email,
-              objectives,
+              objective,
               aboutMe,
               city,
-              imgUrl
             } = req.body;
+
+
             const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
             const newUser = new User({
               name,
               username,
               email,
               password: hashPass,
-              objectives,
+              objective,
               aboutMe,
               city,
-              imgUrl: `uploads/${req.file.filename}`,
+              imgUrl,
             });
-            console.log(imgUrl);
-            console.log(newUser);
+
             newUser.save((err) => {
               if (err) {
                 next(err);

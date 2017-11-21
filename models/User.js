@@ -7,7 +7,7 @@ const userSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
   email: { type: String, required: true},
-  objectives: [{ type: String, enum: OBJECTIVES }],
+  objective: [{ type: String, enum: OBJECTIVES }],
   aboutMe: String,
   city: String,
   follow: { type: Number, default: 0 },
