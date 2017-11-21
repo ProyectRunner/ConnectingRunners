@@ -44,7 +44,7 @@ const eventData = [
   log: -3.600024,
   website: 'http://www.carrerapopulararanjuez.com',
   participants: [],
-  imgUrl: 'uploads/1200-woman-running-on-road.jpg'
+  imgUrl: '1200-woman-running-on-road.jpg'
 },
 { eventName: 'San Silvestre Vallecana',
   description: 'La gran fiesta del running popular. Apúntate ya y vive, junto a 40.000 personas, la experiencia de correr la mejor carrera de 10K del mundo.',
@@ -53,7 +53,7 @@ const eventData = [
   log: -3.703667,
   website: 'https://sansilvestrevallecana.com/',
   participants: [],
-  imgUrl: 'uploads/1200-woman-running-on-road.jpg'
+  imgUrl: '1200-woman-running-on-road.jpg'
 },
 ];
 
