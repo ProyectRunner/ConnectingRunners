@@ -1,4 +1,4 @@
-<form action="/auth/signup" method="post" id="form-container">
+<form action="/auth/signup" method="post" id="form-container" enctype="multipart/form-data">
   <div>
     <label for="name">Name:</label><br>
     <input id="name" type="text" name="name" placeholder="Insert name here">
@@ -13,7 +13,7 @@
     <br><br>
 
     <label for="password">Password:</label><br>
-    <input id="password" type="text" name="password" placeholder="Insert password">
+    <input id="password" type="password" name="password" placeholder="Insert password">
     <br><br>
 
     <label for="objective" >Purpose:</label><br>
@@ -36,8 +36,7 @@
     <input id="city" type="city" name="city" placeholder="Insert city you live in">
     <br><br>
 
-    <label for="imgUrl">Image Url:</label><br>
-    <input id="imgUrl" type:"text" name="imageUrl" placeholder="URL of your profile image">
+    <input type="file" name="imgUrl">
     <br><br>
 
     <div id="create">

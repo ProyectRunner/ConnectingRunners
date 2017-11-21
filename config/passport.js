@@ -3,6 +3,11 @@ const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/User')
 const bcrypt = require("bcrypt")
 const dotenv = require("dotenv").load()
+const multer  = require('multer');
+const upload = multer({ dest: './public/uploads/' });
+const OBJECTIVES = require('../models/running-objectives');
+
+
 
 module.exports = function() {
   passport.serializeUser((user, cb) => {
@@ -57,16 +62,27 @@ module.exports = function() {
             return next(null, false)
           } else {
             const {
+              name,
               username,
+              password,
               email,
-              password
+              objectives,
+              aboutMe,
+              city,
+              imgUrl
             } = req.body;
             const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
             const newUser = new User({
+              name,
               username,
               email,
-              password: hashPass
+              password: hashPass,
+              objectives,
+              aboutMe,
+              city,
+              imgUrl: `uploads/${req.file.filename}`,
             });
+            console.log(imgUrl);
             console.log(newUser);
             newUser.save((err) => {
               if (err) {

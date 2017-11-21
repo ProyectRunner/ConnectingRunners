@@ -18,7 +18,8 @@
 
       <% }else{ %>
 
-        <p style="color: green"><b>Welcome <%= user.username %>!</b></p>
+        <p style="color: green"><b>Welcome <%= user.name %>!</b></p>
+        <a class="profile"href="/profile">Profile</a>
         <a class="login"href="/auth/logout">Logout</a>
       <% } %>
     </nav>

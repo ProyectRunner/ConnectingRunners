@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema   = mongoose.Schema
-const OBJECTIVES   = require('./running-objetives');
+const OBJECTIVES   = require('./running-objectives');
 
 const userSchema = new Schema({
   name: String,
@@ -12,7 +12,7 @@ const userSchema = new Schema({
   city: String,
   follow: { type: Number, default: 0 },
   followers: { type: Number, default: 0 },
-  imgUrl: { type: String, default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250" }
+  imgUrl: { type: String, default: "https://jsns.eu/components/com_jsn/assets/img/default.jpg" }
 }, {
   timestamps: {
     createdAt: 'created_at',

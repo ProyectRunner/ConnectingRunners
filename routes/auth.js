@@ -7,9 +7,13 @@ const ensureLogin = require("connect-ensure-login");
 const AuthController = require("../controllers/AuthController");
 const User = require("../models/User");
 const multer  = require('multer');
+const upload = multer({ dest: './public/uploads/' });
 
 authRoutes.get("/signup", AuthController.signup);
-authRoutes.post('/signup', passport.authenticate('local-signup', {
+
+
+
+authRoutes.post('/signup', upload.single('imgUrl'), passport.authenticate('local-signup', {
   successRedirect : '/auth/login',
   failureRedirect : '/auth/signup'
 }));
