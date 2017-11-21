@@ -1,0 +1,31 @@
+<h2>Edita tu evento</h2>
+
+<form action="/events/<%= event._id %>/edit" method="POST" enctype="multipart/form-data">
+  <label for="eventName">Nombre del Evento</label><br>
+  <input type="text" id="eventName" name="eventName" value="<%= event.eventName %>">
+  <br><br>
+  <label for="date">Fecha</label><br>
+  <input type="date" name="date" id="date" value="<%= event.date %>">
+  <br><br>
+  <label for="description">Descripción</label><br>
+  <textarea type="text" name="description" id="description"><%= event.description %></textarea>
+  <br><br>
+  <label for="website">Sitio web (opcional)</label><br>
+  <input type="text" name="website" id="website" value="<%= event.website %>">
+  <br><br>
+  <label for="place">Lugar</label><br>
+  <textarea type="text" name="place" id="place" value="<%= event.place %>" ></textarea>
+  <br><br>
+  <label for="image-events">Imagen del Evento</label><br>
+  <input type="file" name="imgUrl" id="image-events">
+  <br><br>
+  <input id="lat" name="lat" style="visibility:hidden">
+  <input id="log" name="log" style="visibility:hidden">
+  <br><br>
+  <button type="submit">Editar Evento</button>
+</form>
+
+<input id="pac-input" class="controls" type="text"
+    placeholder="Enter a location">
+<div id="map"></div>
+<br></br>

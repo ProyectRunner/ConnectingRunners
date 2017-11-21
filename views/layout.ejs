@@ -13,13 +13,16 @@
 
         <p style="color: red"><b>You are not logged in</b></p>
 
-        <a class="login"href="/auth/signup">Signup</a>
-        <a class="login"href="/auth/login">Login</a>
+        <a class="login" href="/auth/signup">Signup</a>
+        <a class="login" href="/auth/login">Login</a>
+        <a class="login" href="/events/list">Ver Eventos</a>
 
       <% }else{ %>
 
         <p style="color: green"><b>Welcome <%= user.username %>!</b></p>
-        <a class="login"href="/auth/logout">Logout</a>
+        <a class="login" href="/auth/logout">Logout</a>
+        <a class="login" href="/events/create">Crear Eventos</a>
+        <a class="login" href="/events/list">Ver Eventos</a>
       <% } %>
     </nav>
     <br>

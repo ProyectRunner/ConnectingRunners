@@ -1,6 +1,6 @@
 module.exports = {
   signup: (req, res, next) => {
-    res.render("auth/signup");
+    res.render('events/create');
   },
   login: (req, res) => {
       res.render('auth/login');

@@ -1,0 +1,31 @@
+<h2>Crea tu evento "Runner"</h2>
+
+<form action="/events/create" method="POST" enctype="multipart/form-data">
+  <label for="eventName">Nombre del Evento</label><br>
+  <input type="text" id="eventName" name="eventName" placeholder="Tirada larga 20k en la Casa de Campo a 5:40 min/km">
+  <br><br>
+  <label for="date">Fecha</label><br>
+  <input type="date" name="date" id="date">
+  <br><br>
+  <label for="description">Descripción</label><br>
+  <textarea type="text" name="description" id="description" placeholder="Tengo que entrar para maratón por la Casa de Campo, alguién se anima para salir a hacer la tirada larga... Ritmo 5:40 min/k "></textarea>
+  <br><br>
+  <label for="website">Sitio web (opcional)</label><br>
+  <input type="text" name="website" id="website" placeholder="Sitio web (opcional)">
+  <br><br>
+  <label for="place">Lugar</label><br>
+  <textarea type="text" name="place" id="place" placeholder="Lago casa de Campo"></textarea>
+  <br><br>
+  <label for="image-events">Imagen del Evento</label><br>
+  <input type="file" name="imgUrl" id="image-events">
+  <br><br>
+  <input id="lat" name="lat" placeholder="Latitude" style="visibility:hidden">
+  <input id="log" name="log" placeholder="Longitude" style="visibility:hidden">
+  <br><br>
+  <button type="submit">Crear Evento</button>
+</form>
+
+<input id="pac-input" class="controls" type="text"
+    placeholder="Enter a location">
+<div id="map"></div>
+<br></br>
