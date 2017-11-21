@@ -1,5 +1,6 @@
 const express = require ('express');
 const Event = require("../models/Event");
+const User = require("../models/User");
 const eventsRoutes = express.Router();
 const { ensureLoggedIn }  = require('connect-ensure-login');
 // const EventController = require("../controllers/EventController");

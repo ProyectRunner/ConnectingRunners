@@ -4,7 +4,7 @@
   <% events.forEach((event) => { %>
     <li>
       <img src="/uploads/<%= event.imgUrl %>" width="150" height="150">
-      <h3><%= event.name %></h3>
+      <h3><%= event.eventName %></h3>
       <h4><%= event.date %></h4>
       <p><%= event.description %></p>
       <a href="/events/<%= event._id %>">View Details</a>
@@ -19,7 +19,7 @@
     <% events.forEach((event) => { %>
       <li>
         <img src="/uploads/<%= event.imgUrl %>" width="150" height="150">
-        <h3><%= event.name %></h3>
+        <h3><%= event.eventName %></h3>
         <h4><%= event.date %></h4>
         <p><%= event.description %></p>
         <a href="/events/<%= event._id %>">View Details</a> | <a href="/events/<%= event._id %>/edit/">Edit Event</a>
