@@ -53,7 +53,7 @@ module.exports = function() {
       if (req.file) {
         imgUrl = req.file.filename;
       } else {
-        imgUrl = 'https://jsns.eu/components/com_jsn/assets/img/default.jpg';
+        imgUrl = 'default-profile.jpg';
       }
       process.nextTick(() => {
         User.findOne({

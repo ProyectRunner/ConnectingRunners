@@ -12,7 +12,7 @@ const userSchema = new Schema({
   city: String,
   follow: { type: Number, default: 0 },
   followers: { type: Number, default: 0 },
-  imgUrl: { type: String, default: "https://jsns.eu/components/com_jsn/assets/img/default.jpg" }
+  imgUrl: { type: String, default: "uploads/default-profile.jpg" }
 }, {
   timestamps: {
     createdAt: 'created_at',

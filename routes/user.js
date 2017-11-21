@@ -14,13 +14,16 @@ router.get('/:id/edit', (req, res, next) => {
   });
 
 router.post('/profile/:id/edit', [ensureLoggedIn('/auth/login'), upload.single('imgUrl')], (req, res, next) => {
-
-  const {name,username,email,objectives,aboutMe,city} = req.body;
-
-  const updates = { name,username,email,objectives,aboutMe,city,
-      imgUrl: req.file.filename,
-       };
-
+  const { name, username, email, objectives, aboutMe, city} = req.body;
+  let imgUrl = '';
+  if (req.file) {
+    imgUrl = req.file.filename;
+  } else {
+    imgUrl = res.locals.user.imgUrl;
+  }
+  const updates = { name, username, email, objectives, aboutMe, city, imgUrl };
+  console.log('Imprimo Updates de perfil');
+  console.log(updates);
   User.findByIdAndUpdate(req.params.id, updates)
   .then(user => res.redirect(`/profile`))
   .catch(e => {
