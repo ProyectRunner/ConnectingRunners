@@ -1,0 +1,44 @@
+<form action="/profile/<%=user._id%>/edit" method="post" id="form-container" enctype="multipart/form-data">
+  <div>
+    <label for="name">Name:</label><br>
+    <input id="name" type="text" name="name" value="<%= user.name%>">
+    <br><br>
+
+    <label for="username">Username:</label><br>
+    <input id="username" type="text" name="username" value="<%= user.username%>">
+
+    <br><br>
+    <label for="mail">E-mail:</label><br>
+    <input id="mail" type="text" name="email" value="<%= user.email%>">
+    <br><br>
+
+    <label for="objective">Purpose:</label><br>
+    <select name="objective">
+      <option value="" disabled selected>Select your purpose</option>
+      <option value="empezar a correr">Start running</option>
+      <option value="10K">10K</option>
+      <option value="media maratón">Half marathon</option>
+      <option value="maratón">Marathon</option>
+      <option value="trail">Trail</option>
+      <option value="correr por diversión">Run for fun</option>
+    </select>
+    <br><br>
+
+    <label for="aboutMe">Tell us about yourself:</label><br>
+    <input id="aboutMe" type="aboutMe" name="aboutMe" value="<%= user.aboutMe%>">
+    <br><br>
+
+    <label for="city">City:</label><br>
+    <input id="city" type="city" name="city" value="<%= user.city%>">
+    <br><br>
+
+    <input type="file" name="imgUrl">
+    <br><br>
+
+    <div id="update">
+    <button>Update profile</button>
+    </div>
+  </div>
+</form>
+<br>
+  <a href="/profile">Back to profile</a>

@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Schema   = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema   = mongoose.Schema;
 const OBJECTIVES   = require('./running-objectives');
 
 const userSchema = new Schema({
@@ -18,7 +18,7 @@ const userSchema = new Schema({
     createdAt: 'created_at',
     updatedAt: 'updated_at'
   }
-})
+});
 
-const User = mongoose.model('User', userSchema)
-module.exports = User
+const User = mongoose.model('User', userSchema);
+module.exports = User;

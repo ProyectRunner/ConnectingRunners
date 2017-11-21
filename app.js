@@ -7,7 +7,8 @@ const index = require('./routes/index');
 const profile = require('./routes/user');
 
 app.use('/', index);
-app.use('/profile', profile);
+app.use('/', profile);
+
 
 require('./config/error-handler')(app);
 
