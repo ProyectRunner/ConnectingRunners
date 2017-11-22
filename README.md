@@ -1,5 +1,5 @@
 ----
-THIS README IS UNDER CONSTRUCTION, please, be patient.
+CONNECTING RUNNERS
 
 ------
 # Basic and empty Node.js & Express.js server  with auth ready for start to code
