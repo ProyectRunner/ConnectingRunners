@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Connecting Runners</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/maps.css">
   </head>
   <body>
     <nav>
       <h2> Connecting Runners</h2>
       <% if(!user){ %>
+
         <a class="login" href="/auth/signup">Signup</a> |
         <a class="login" href="/auth/login">Login</a> |
-        <a class="login" href="/events/list">Ver Eventos</a> | 
+        <a class="login" href="/events/list">Ver Eventos</a> |
 
       <% }else{ %>
 
@@ -24,6 +26,8 @@
       <% } %>
     </nav>
     <br>
+
     <%- body -%>
   </body>
+
 </html>

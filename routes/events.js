@@ -91,10 +91,11 @@ eventsRoutes.post('/events/:id/edit', [ensureLoggedIn('/auth/login'), ensureOwne
   if (req.file) {
     imgUrl = req.file.filename;
   } else {
-    imgUrl = res.locals.event.imgUrl;
+    imgUrl = res.locals.user.imgUrl;
   }
   const updates = {
-    eventName, description, date, website, place, lat, log, imgUrl };
+    eventName, description, date, website, place, lat, log, imgUrl};
+
   Event.findByIdAndUpdate(req.params.id, updates)
   .then(event => res.redirect(`/events/${req.params.id}`))
   .catch(err => {

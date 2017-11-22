@@ -10,8 +10,6 @@ const salt = bcrypt.genSaltSync(bcryptSalt);
 const password = "1234";
 const encryptedPass = bcrypt.hashSync(password, salt);
 
-
-
 const runnersData = [
   {name: 'Clementina',
   username: 'Clementina',
