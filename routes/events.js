@@ -116,7 +116,7 @@ eventsRoutes.post('/events/:id/delete', (req, res, next) => {
 });
 
 
-//Join user
+//Join user to event
 eventsRoutes.post('/events/join/:id', [ensureLoggedIn('/auth/login')], (req, res, next) => {
   const eventId = req.params.id;
   const userId = req.user._id;
@@ -134,7 +134,6 @@ eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (r
     const joinId = req.params.id;
 
     RelUserEvent.findById(joinId)
-      //.populate('eventId');
       .populate('eventId')
       .populate('userId')
       .then(join =>{
@@ -144,10 +143,26 @@ eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (r
       .catch(err => next(err));
 });
 
-// <form action="/events/join/<%= event._id %>/delete" method="POST">
-//  <button type="submit">Unjoin</button>
-// </form>
+// Unjoin user to event
 
+eventsRoutes.post('/events/join/myevent/:id/delete'), [ensureLoggedIn('/auth/login')], (req, res, next) =>{
+    const id = req.params.id;
+    Event.findByIdAndRemove(id)
+    .then(event => res.redirect('/events/details'))
+    .catch(err => next(err));
+};
 
+// eventsRoutes.get('/events/unjoin/myevent/:id', [ensureLoggedIn('/auth/login')], (req, res, next) =>{
+//     const joinId = req.params.id;
+//
+//     RelUserEvent.findById(joinId)
+//       .populate('eventId')
+//       .populate('userId')
+//       .then(join =>{
+//         console.log('8=========3'+ join);
+//         res.render('events/join-ok', {join});
+//       })
+//       .catch(err => next(err));
+// });
 
 module.exports = eventsRoutes;
