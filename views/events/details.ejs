@@ -24,5 +24,9 @@
       <form action="/events/join/<%= event._id %>" method="POST">
        <button type="submit">Join</button>
      </form>
-     <p>Felicidades</p>
+     <form action="/events/join/<%= event._id %>/delete" method="POST">
+      <button type="submit">Unjoin</button>
+    </form>
+
+
 <% } %>
