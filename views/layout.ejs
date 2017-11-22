@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Connecting Runners</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/maps.css">
   </head>
   <body>
     <nav>
@@ -12,9 +13,8 @@
       <% if(!user){ %>
 
         <p style="color: red"><b>Debes hacer Login</b></p>
-
-        <a class="login" href="/auth/signup">Signup</a>
-        <a class="login" href="/auth/login">Login</a>
+        <a class="login" href="/auth/signup">Signup</a> |
+        <a class="login" href="/auth/login">Login</a> |
         <a class="login" href="/events/list">Ver Eventos</a>
 
       <% }else{ %>
