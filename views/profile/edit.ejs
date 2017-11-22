@@ -1,0 +1,44 @@
+<form action="/profile/<%=user._id%>/edit" method="post" id="form-container" enctype="multipart/form-data">
+  <div>
+    <label for="name">Nombre:</label><br>
+    <input id="name" type="text" name="name" value="<%= user.name%>">
+    <br><br>
+
+    <label for="username">Usuario:</label><br>
+    <input id="username" type="text" name="username" value="<%= user.username%>">
+
+    <br><br>
+    <label for="mail">E-mail:</label><br>
+    <input id="mail" type="text" name="email" value="<%= user.email%>">
+    <br><br>
+
+    <label for="objective">Objetivo:</label><br>
+    <select name="objective">
+      <option value="" disabled selected>Seleccionar objetivo</option>
+      <option value="empezar a correr">Empezar a correr</option>
+      <option value="10K">10K</option>
+      <option value="media maratón">Medio maratón</option>
+      <option value="maratón">Maratón</option>
+      <option value="trail">Trail</option>
+      <option value="correr por diversión">Diversión</option>
+    </select>
+    <br><br>
+
+    <label for="aboutMe">Cuéntanos de ti:</label><br>
+    <input id="aboutMe" type="aboutMe" name="aboutMe" value="<%= user.aboutMe%>">
+    <br><br>
+
+    <label for="city">Ciudad:</label><br>
+    <input id="city" type="city" name="city" value="<%= user.city%>">
+    <br><br>
+
+    <input type="file" name="imgUrl">
+    <br><br>
+
+    <div id="update">
+    <button>Actualizar perfil</button>
+    </div>
+  </div>
+</form>
+<br>
+  <a href="/profile">Volver a perfil</a>

@@ -16,23 +16,25 @@ const runnersData = [
   {name: 'Clementina',
   username: 'Clementina',
   password: encryptedPass,
+  objective: '10K',
   email: 'mataclemy@gmail.com',
   aboutMe: 'Awesome',
   city: 'Madrid',
   follow: 9,
   followers: 8,
-  imgUrl: 'http://www.runners.es/media/cache/original/upload/images/paragrapharticle/10520/paragrapharticle-28737-58ca98bd7f619.jpg',
+  imgUrl: 'perfil-clementina.jpg',
  },
 
  {name: 'Cami',
  username: 'Cami',
  password: encryptedPass,
+ objective: '10K',
  email: 'cami@gmail.com',
  aboutMe: 'Too cool',
  city: 'Madrid',
  follow: 10,
  followers: 9,
- imgUrl: 'http://stuffhappens.us/wp-content/uploads/2014/06/1-Alf.jpg',
+ imgUrl: 'perfil-clementina.jpg',
 }
 ];
 

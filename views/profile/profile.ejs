@@ -1,0 +1,18 @@
+<body>
+  <div id="profile">
+  <% if(user.imgUrl != 'uploads/default-profile.jpg') {%>
+    <img src="uploads/<%= user.imgUrl%>" width="150px" height="150px">
+  <%}else{%>
+    <img src="<%= user.imgUrl%>" width="150px" height="150px">
+  <%}%>
+  <p>Nombre: <%= user.name %></p>
+  <p>Usuario: <%= user.username %></p>
+  <p>Mi objetivo es: <%= user.objective %></p>
+  <p>Sobre mi: <%= user.aboutMe %></p>
+  <p>Vivo en: <%= user.city %></p>
+  <br>
+  <a href="/profile/edit">Editar Perfil</a>
+
+
+</div>
+</body>

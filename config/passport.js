@@ -3,6 +3,11 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/User');
 const bcrypt = require("bcrypt");
 const dotenv = require("dotenv").load();
+const multer  = require('multer');
+const upload = multer({ dest: './public/uploads/' });
+const OBJECTIVES = require('../models/running-objectives');
+
+
 
 module.exports = function() {
   passport.serializeUser((user, cb) => {
@@ -24,17 +29,14 @@ module.exports = function() {
     }, (err, user) => {
       if (err) {
         return next(err, {
-          message: "Error, ingrese usuario y contraseña correctas"
         });
       }
       if (!user) {
         return next(null, false, {
-          message: "Usuario Incorrecto"
         });
       }
       if (!bcrypt.compareSync(password, user.password)) {
         return next(null, false, {
-          message: "Contraseña no es correcta"
         });
       }
       return next(null, user);
@@ -45,6 +47,14 @@ module.exports = function() {
       passReqToCallback: true
     },
     (req, username, password, next) => {
+      console.log(req.body);
+      console.log(req.file);
+      let imgUrl = '';
+      if (req.file) {
+        imgUrl = req.file.filename;
+      } else {
+        imgUrl = 'default-profile.jpg';
+      }
       process.nextTick(() => {
         User.findOne({
           'username': username
@@ -57,17 +67,28 @@ module.exports = function() {
             return next(null, false);
           } else {
             const {
+              name,
               username,
+              password,
               email,
-              password
+              objective,
+              aboutMe,
+              city,
             } = req.body;
+
+
             const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
             const newUser = new User({
+              name,
               username,
               email,
-              password: hashPass
+              password: hashPass,
+              objective,
+              aboutMe,
+              city,
+              imgUrl,
             });
-            console.log(newUser);
+
             newUser.save((err) => {
               if (err) {
                 next(err);
