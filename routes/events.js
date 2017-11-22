@@ -45,34 +45,17 @@ eventsRoutes.post('/events/create', [ensureLoggedIn('/auth/login'), upload.singl
 
 eventsRoutes.get('/events/:id', (req, res, next) => {
   const eventId = req.params.id;
-  // const queries = [];
 
-  // const t1 = superagent.get('https://www.bitstamp.net/api/ticker')
-  //    .then(ticker => {
-  //      valuesArray.push({exchange: 'Bitstamp', BTCValue: ticker.body.last})
-  //    })
-  //    .catch(err => console.log(err))
-  //
-  // const q1 = Event.findById(eventId)
-  //             .then(event =>{
-  //             queries.push(event)
-  //           })
-  //           .catch(err =>console.log(err));
-  // const q2 = RelUserEvent.findById()
-
-  Event.findById(eventId, (err, event) => {
-      if (err) { return next(err); }
-      res.render('events/details', { event: event });
-    });
-
-  // Event.findById(eventId)
-  //   .then(event =>{
-  //   RelUserEvent.findById(eventId)
-  //   .then(join =>{
-  //     res.render('events/details', { event: event }, {join:newUserJoin});
+  // Event.findById(eventId, (err, event) => {
+  //     if (err) { return next(err); }
+  //     res.render('events/details', { event: event });
   //   });
-  //   })
-  //   .catch(err => next(err));
+
+  Event.findById(eventId)
+    .then(event =>{
+      res.render('events/details', { event: event });
+    })
+    .catch(err => next(err));
 });
 
 // Edit events
@@ -87,7 +70,7 @@ eventsRoutes.get('/events/:id/edit', ensureLoggedIn('/auth/login'), (req, res, n
 
 const ensureOwnerEdits = (req,res,next) =>{
   Event.findById(req.params.id)
-  .populate('creator')
+  .populate('creator', 'name')
   .then(event =>{
     console.log(event);
     if(req.user._id.equals(event.creator._id)){
@@ -134,7 +117,7 @@ eventsRoutes.post('/events/:id/delete', (req, res, next) => {
 
 
 //Join user
-eventsRoutes.post('/events/join/:id', (req, res, next) => {
+eventsRoutes.post('/events/join/:id', [ensureLoggedIn('/auth/login')], (req, res, next) => {
   const eventId = req.params.id;
   const userId = req.user._id;
 
@@ -142,34 +125,28 @@ eventsRoutes.post('/events/join/:id', (req, res, next) => {
     eventId, userId });
     newUserJoin.save()
       .then(join => {
-        console.log('8=========3'+ join);
         res.redirect(`/events/join/myevent/${join._id}`);
-    }).catch(err => res.render('events/details'));
+      })
+    .catch(err => res.render('events/details'));
 });
 
-eventsRoutes.get('/events/join/myevent/:id', (req, res, next) =>{
+eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (req, res, next) =>{
     const joinId = req.params.id;
 
     RelUserEvent.findById(joinId)
-      .then(join => res.render('events/join-ok', {join}))
+      //.populate('eventId');
+      .populate('eventId')
+      .populate('userId')
+      .then(join =>{
+        console.log('8=========3'+ join);
+        res.render('events/join-ok', {join});
+      })
       .catch(err => next(err));
-
 });
 
-
-//Unjoin user
-// eventsRoutes.post('/events/join/:id/delete', (req, res, next) => {
-//   const eventId = req.params.id;
-//   const userId = req.user._id;
-//
-//   const newUserJoin = new RelUserEvent({
-//     eventId, userId });
-//     newUserJoin.save()
-//       .then(join => {
-//         console.log(join);
-//       res.redirect(`/events/${join.eventId}`);
-//     }).catch(err => res.render('events/details'),{join:newUserJoin});
-// });
+// <form action="/events/join/<%= event._id %>/delete" method="POST">
+//  <button type="submit">Unjoin</button>
+// </form>
 
 
 

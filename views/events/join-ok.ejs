@@ -1,4 +1,14 @@
-<h2>Join Eventos</h2>
+<a href="/events/list">Ver más eventos</a>
 <br><br>
 
-<%= join %>
+<h2>Te esperamos en el evento! No olvides tus zapas ;)</h2>
+  <ul>
+      <li>
+        <img src="/uploads/<%= join.eventId.imgUrl %>" width="150" height="150">
+        <h3><%= join.eventId.eventName %></h3>
+        <h4><%= join.eventId.date %></h4>
+        <p><%= join.eventId.description %></p>
+
+      </li>
+      <br><br>
+  </ul>
