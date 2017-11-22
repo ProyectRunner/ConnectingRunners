@@ -1,16 +1,16 @@
 <h2>Detalle Eventos</h2>
 <br><br>
 <% if(!user){ %>
-  <% if(user.imgUrl != 'uploads/default-profile.jpg') {%>
       <img src="/uploads/<%= event.imgUrl %>" width="150" height="150">
-    <%}else{%>
-      <img src="<%= user.imgUrl%>" width="150px" height="150px">
-     <%}%>
       <h3><%= event.eventName %></h3>
       <h4><%= event.date %></h4>
       <p><%= event.description %></p>
 <% }else{ %>
-        <img src="/uploads/<%= event.imgUrl %>" width="150" height="150">
+    <% if(event.imgUrl != 'uploads/img-default-event.jpg') {%>
+      <img src="/uploads/<%= event.imgUrl %>" width="150" height="150">
+    <%}else{%>
+      <img src="<%= event.imgUrl%>" width="150px" height="150px">
+     <%}%>
         <h3><%= event.eventName %></h3>
         <h4><%= event.date %></h4>
         <p><%= event.description %></p>
@@ -19,4 +19,10 @@
         <form action="/events/<%= event._id %>/delete" method="POST">
          <button type="submit">Borrar Evento</button>
        </form>
+
+      <br>
+      <form action="/events/join/<%= event._id %>" method="POST">
+       <button type="submit">Join</button>
+     </form>
+     <p>Felicidades</p>
 <% } %>

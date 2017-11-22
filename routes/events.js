@@ -1,6 +1,7 @@
 const express = require ('express');
 const Event = require("../models/Event");
 const User = require("../models/User");
+const RelUserEvent = require("../models/RelUserEvent");
 const eventsRoutes = express.Router();
 const { ensureLoggedIn }  = require('connect-ensure-login');
 // const EventController = require("../controllers/EventController");
@@ -81,13 +82,13 @@ eventsRoutes.post('/events/:id/edit', [ensureLoggedIn('/auth/login'), ensureOwne
   console.log(req.body);
   const {eventName, description, date, website, place, lat, log} = req.body;
   let imgUrl = '';
-  req.file? imgUrl = req.file.filename : imgUrl = res.locals.user.imgUrl;
-
+  if (req.file) {
+    imgUrl = req.file.filename;
+  } else {
+    imgUrl = res.locals.event.imgUrl;
+  }
   const updates = {
-    eventName, description, date, website, place, lat, log,
-    imgUrl: req.file.filename
-  };
-
+    eventName, description, date, website, place, lat, log, imgUrl };
   Event.findByIdAndUpdate(req.params.id, updates)
   .then(event => res.redirect(`/events/${req.params.id}`))
   .catch(e => {
@@ -110,6 +111,24 @@ eventsRoutes.post('/events/:id/delete', (req, res, next) => {
   });
 
 });
+
+
+//Join user
+eventsRoutes.post('/events/join/:id', (req, res, next) => {
+  const eventId = req.params.id;
+  const userId = req.user._id;
+
+  const newUserJoin = new RelUserEvent({
+    eventId, userId });
+    newUserJoin.save()
+      .then(join => {
+        console.log(join);
+      res.redirect(`/events/${join.eventId}`);
+    }).catch(err => res.render('events/details'));
+
+
+});
+
 
 
 module.exports = eventsRoutes;
