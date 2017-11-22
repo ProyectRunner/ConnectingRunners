@@ -30,10 +30,12 @@ eventsRoutes.post('/events/create', [ensureLoggedIn('/auth/login'), upload.singl
   const {eventName, description, date, website, place, imgUrl, lat, log} = req.body;
   const createEvent = new Event ({
     eventName, description, date, website, place, lat, log,
-    imgUrl: req.file.filename
+    imgUrl: req.file.filename,
+    creator: req.user._id
   });
   createEvent.save()
     .then(event => {
+      console.log(event);
     res.redirect(`/events/${event._id}`);
   }).catch(err => res.render('events/create', { event:createEvent}));
 });
@@ -63,6 +65,7 @@ const ensureOwnerEdits = (req,res,next) =>{
   Event.findById(req.params.id)
   .populate('creator')
   .then(event =>{
+    console.log(event);
     if(req.user._id.equals(event.creator._id)){
       return next();
     };
@@ -83,10 +86,9 @@ eventsRoutes.post('/events/:id/edit', [ensureLoggedIn('/auth/login'), ensureOwne
   };
 
   Event.findByIdAndUpdate(req.params.id, updates)
-  .then(event => res.redirect(`/events/details`))
+  .then(event => res.redirect(`/events/${req.params.id}`))
   .catch(e => {
     console.log(e);
-    console.log("Evento Actualizado");
     res.render('events/edit', {
       event:updates,
       error: e.message

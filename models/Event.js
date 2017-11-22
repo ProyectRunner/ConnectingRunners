@@ -7,7 +7,7 @@ const eventSchema = new Schema({
   date: { type: Date, default: Date.now },
   website: String,
   place: String,
-  creator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  creator: { type: Schema.Types.ObjectId, ref: 'User'},
   imgUrl: { type: String, default: "uploads/img-default-event.jpg" },
   lat: Number,
   log: Number,
