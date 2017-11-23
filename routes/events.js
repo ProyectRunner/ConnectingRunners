@@ -45,6 +45,7 @@ eventsRoutes.get('/events/:id', (req, res, next) => {
   const eventId = req.params.id;
 
   Event.findById(eventId)
+    .populate("creator")
     .then(event =>{
       res.render('events/details', {event:event , user: req.user});
     })
@@ -52,21 +53,7 @@ eventsRoutes.get('/events/:id', (req, res, next) => {
 });
 
 // Edit events
-const ensureOwner = (req,res,next) =>{
-  Event.findById(req.params.id)
-  .populate('creator')
-  .then(event =>{
-    // console.log("entro... probando" + event);
-    if(req.user._id == event.creator._id){
-      return next();
-    };
-    throw new Error("No eres el propietario del evento");
-  })
-  .catch(err => {
-    console.error(err);
-    res.redirect('/events/'+req.params.id);
-  });
-};
+
 
 eventsRoutes.get('/events/:id/edit', ensureLoggedIn('/auth/login'), (req, res, next) => {
   Event.findById(req.params.id)
@@ -137,12 +124,14 @@ eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (r
 
 // Unjoin user to event
 
-eventsRoutes.post('/events/join/myevent/:id/delete'), [ensureLoggedIn('/auth/login')], (req, res, next) =>{
+eventsRoutes.post('/events/join/myevent/:id/delete', (req, res, next) =>{
     const id = req.params.id;
+    console.log("8========D---3");
+    console.log(id);
     Event.findByIdAndRemove(id)
-    .then(event => res.redirect('/events/details'))
+    .then(join => res.redirect('/events/list'))
     .catch(err => next(err));
-};
+});
 
 eventsRoutes.get('/events/unjoin/myevent/:id', [ensureLoggedIn('/auth/login')], (req, res, next) =>{
     const joinId = req.params.id;
@@ -151,7 +140,7 @@ eventsRoutes.get('/events/unjoin/myevent/:id', [ensureLoggedIn('/auth/login')], 
       .populate('eventId')
       .populate('userId')
       .then(join =>{
-        res.render('/events/details', {join});
+        res.render('events/list', {join});
       })
       .catch(err => next(err));
 });

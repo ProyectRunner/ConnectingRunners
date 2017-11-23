@@ -11,9 +11,12 @@
       </li>
       <br><br>
   </ul>
+<h2>Participantes de Evento</h2>
+<ul>
+  <li><%= join.userId.name %></li>
+</ul>
 
 
-
-  <form action="/events/join/myevent/<%= join._id %>/delete" method="POST">
+  <form action='/events/join/myevent/<%=  join._id%>/delete' method="POST">
    <button type="submit">Baja del evento :(</button>
  </form>
