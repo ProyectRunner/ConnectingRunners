@@ -1,17 +1,23 @@
-<br>
-  <div id="profile">
-  <% if(user.imgUrl != 'uploads/default-profile.jpg') {%>
-    <img src="uploads/<%= user.imgUrl%>" width="150px" height="150px">
-  <%}else{%>
-    <img src="<%= user.imgUrl%>" width="150px" height="150px">
-  <%}%>
-  <p>Nombre: <%= user.name %></p>
-  <p>Usuario: <%= user.username %></p>
-  <p>Mi objetivo es: <%= user.objective %></p>
-  <p>Sobre mi: <%= user.aboutMe %></p>
-  <p>Vivo en: <%= user.city %></p>
-  <br>
-  <a href="/profile/edit">Editar Perfil</a>
-
-
+<div class="rela-block container">
+  <div class="rela-block profile-card">
+    <div class="profile-pic" id="profile_pic">
+      <% if(user.imgUrl != 'uploads/default-profile.jpg') {%>
+        <img src="uploads/<%= user.imgUrl%>" width="150px" height="150px">
+      <%}else{%>
+        <img src="<%= user.imgUrl%>" width="150px" height="150px">
+      <%}%>
+    </div>
+    <div class="rela-block profile-name-container">
+      <div class="rela-block user-name" id="user_name"><%= user.name %></div>
+      <div class="rela-block user-desc" id="user_description"><%= user.city %></div>
+    </div>
+    <div class="rela-block profile-name-container">
+      <div class="rela-block user-name" id="user_name">Mi objetivo :) <%= user.objective %></div>
+      <div class="rela-block user-desc" id="user_description">Sobre mi: <%= user.aboutMe %></div>
+    </div>
+  </div>
+  <!-- <div class="rela-block content">
+    <div class="rela-inline image"></div>
+  </div> -->
+  <div class="rela-inline button more-images"><a href="/profile/edit">Editar Perfil</a></div>
 </div>

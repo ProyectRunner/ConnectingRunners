@@ -97,7 +97,7 @@ eventsRoutes.post('/events/:id/delete', ensureLoggedIn('/auth/login'), (req, res
 
 
 //Join user to event
-eventsRoutes.post('/events/join/:id', [ensureLoggedIn('/auth/login')], (req, res, next) => {
+eventsRoutes.post('/events/join/:id', ensureLoggedIn('/auth/login'), (req, res, next) => {
   const eventId = req.params.id;
   const userId = req.user._id;
 
@@ -110,7 +110,7 @@ eventsRoutes.post('/events/join/:id', [ensureLoggedIn('/auth/login')], (req, res
     .catch(err => res.render('events/details'));
 });
 
-eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (req, res, next) =>{
+eventsRoutes.get('/events/join/myevent/:id', ensureLoggedIn('/auth/login'), (req, res, next) =>{
     const joinId = req.params.id;
 
     RelUserEvent.findById(joinId)
@@ -133,7 +133,7 @@ eventsRoutes.post('/events/join/myevent/:id/delete', (req, res, next) =>{
     .catch(err => next(err));
 });
 
-eventsRoutes.get('/events/unjoin/myevent/:id', [ensureLoggedIn('/auth/login')], (req, res, next) =>{
+eventsRoutes.get('/events/unjoin/myevent/:id', ensureLoggedIn('/auth/login'), (req, res, next) =>{
     const joinId = req.params.id;
 
     RelUserEvent.findById(joinId)

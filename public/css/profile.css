@@ -240,7 +240,7 @@ body {
 }
 .sign-div {
   margin: 0px;
-  width: 250px;
+  width: 300px;
   -webkit-transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.15s 0.3s cubic-bezier(0.75, 0, 0.2, 1);
   transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.15s 0.3s cubic-bezier(0.75, 0, 0.2, 1);
 }
@@ -425,9 +425,6 @@ body {
 }
 .profile-stat:after {
   color: #999;
-}
-.works::after {
-  content: "works";
 }
 .followers::after {
   content: "followers";
