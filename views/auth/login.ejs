@@ -1,26 +1,23 @@
-<form action="/auth/login" method="POST">
-  <div class="field">
-    <label for="username">Usuario:</label><br>
-    <input type="text" name="username" placeholder="Nombre de usuario">
-  </div>
-  <br>
-  <div class="field">
-    <label for="password">Contraseña:</label><br>
-    <input type="password" name="password" placeholder="Insertar contraseña">
-  </div>
-  <% if (typeof message != "undefined") { %>
-  <div class="error-message"><%= message %></div>
-<% } %>
-  <br>
+<br>
 
-  <div id="login">
-    <button>Login</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrap">
+        <p class="form-title">Login</p>
+        <form action="/auth/login" method="POST" class="login">
+          <input type="text" name="username" placeholder="Nombre de usuario">
+          <input type="password" name="password" placeholder="Insertar contraseña">
+          <input type="submit" value="Login" class="btn btn-success btn-sm" />
+          <div class="check-login">
+            <p class="account-message">
+              No tienes una cuenta?
+              <a class="click" href="/auth/signup">Crear cuenta |</a>
+              <a class="click" href="/">Regresar</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="check-login">
-    <p class="account-message">
-      No tienes una cuenta?
-      <a class="click" href="/auth/signup">Crear cuenta</a>
-      <a class="click" href="/">Regresar</a>
-    </p>
-  </div>
-</form>
+</div>
