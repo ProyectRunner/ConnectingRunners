@@ -12,14 +12,16 @@ const upload = multer({dest:'./public/uploads'});
 //Show events list
 
 eventsRoutes.get('/events/list', (req, res, next) => {
-  Event.find({}, (err, events) => {
-    if (err) { return next(err); }
-
-    res.render('events/list', {
-      events: events
-    });
-  });
+  Event.find().populate("creator")
+    .then(result => {
+      console.log("8========D---3  entrando");
+      console.log(result);
+      console.log(req.user);
+      res.render('events/list', {events:result , user: req.user});
+    })
+    .catch(err => next (err));
 });
+
 
 //Create events
 
@@ -59,21 +61,12 @@ eventsRoutes.get('/events/:id', (req, res, next) => {
 });
 
 // Edit events
-
-eventsRoutes.get('/events/:id/edit', ensureLoggedIn('/auth/login'), (req, res, next) => {
+const ensureOwner = (req,res,next) =>{
   Event.findById(req.params.id)
+  .populate('creator')
   .then(event =>{
-    res.render('events/edit', {event: event});
-  })
-  .catch(err => next(err));
-});
-
-const ensureOwnerEdits = (req,res,next) =>{
-  Event.findById(req.params.id)
-  .populate('creator', 'name')
-  .then(event =>{
-    console.log(event);
-    if(req.user._id.equals(event.creator._id)){
+    console.log("entro... probando" + event);
+    if(req.user._id == event.creator._id){
       return next();
     };
     throw new Error("No eres el propietario del evento");
@@ -84,8 +77,16 @@ const ensureOwnerEdits = (req,res,next) =>{
   });
 };
 
-eventsRoutes.post('/events/:id/edit', [ensureLoggedIn('/auth/login'), ensureOwnerEdits, upload.single('imgUrl')], (req, res, next) => {
-  console.log(req.body);
+eventsRoutes.get('/events/:id/edit', ensureLoggedIn('/auth/login'), ensureOwner, (req, res, next) => {
+  Event.findById(req.params.id)
+  .then(event =>{
+    res.render('events/edit', {event: event});
+  })
+  .catch(err => next(err));
+});
+
+
+eventsRoutes.post('/events/:id/edit', [ensureLoggedIn('/auth/login'), upload.single('imgUrl')], (req, res, next) => {
   const {eventName, description, date, website, place, lat, log} = req.body;
   let imgUrl = '';
   if (req.file) {
@@ -109,7 +110,7 @@ eventsRoutes.post('/events/:id/edit', [ensureLoggedIn('/auth/login'), ensureOwne
 
 //Delete Event
 
-eventsRoutes.post('/events/:id/delete', (req, res, next) => {
+eventsRoutes.post('/events/:id/delete', [ensureLoggedIn('/auth/login'), ensureOwner], (req, res, next) => {
   const id = req.params.id;
   Event.findByIdAndRemove(id)
     .then(event => res.redirect('/events/list'))
@@ -146,7 +147,7 @@ eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (r
 
 // Unjoin user to event
 
-eventsRoutes.post('/events/join/myevent/:id/delete'), [ensureLoggedIn('/auth/login')], (req, res, next) =>{
+eventsRoutes.post('/events/join/:id/delete'), [ensureLoggedIn('/auth/login')], (req, res, next) =>{
     const id = req.params.id;
     Event.findByIdAndRemove(id)
     .then(event => res.redirect('/events/details'))

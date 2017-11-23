@@ -7,6 +7,7 @@ const logger = require('morgan');
 const layouts = require('express-ejs-layouts');
 const config = require('./config.js');
 const mongoose = require('mongoose');
+const path = require('path');
 
 module.exports = function(app) {
 
@@ -20,6 +21,9 @@ module.exports = function(app) {
     extended: false
   }));
   app.use(cookieParser());
+  app.use('/dist/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
+  app.use('/dist/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
+  app.use('/dist/css', express.static(path.join(__dirname, '../node_modules/materialize-css')));
   app.use(express.static(config.rootPath + 'public'));
   app.use(layouts);
   app.use(session({
