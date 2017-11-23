@@ -48,11 +48,6 @@ eventsRoutes.post('/events/create', [ensureLoggedIn('/auth/login'), upload.singl
 eventsRoutes.get('/events/:id', (req, res, next) => {
   const eventId = req.params.id;
 
-  // Event.findById(eventId, (err, event) => {
-  //     if (err) { return next(err); }
-  //     res.render('events/details', { event: event });
-  //   });
-
   Event.findById(eventId)
     .then(event =>{
       res.render('events/details', { event: event });

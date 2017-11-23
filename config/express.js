@@ -23,7 +23,7 @@ module.exports = function(app) {
   app.use(cookieParser());
   app.use('/dist/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
   app.use('/dist/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
-  app.use('/dist/css', express.static(path.join(__dirname, '../node_modules/materialize-css')));
+//  app.use('/dist/materialize-css', express.static(path.join(__dirname, '../node_modules/materialize-css/dist')));
   app.use(express.static(config.rootPath + 'public'));
   app.use(layouts);
   app.use(session({
