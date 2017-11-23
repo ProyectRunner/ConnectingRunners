@@ -2,11 +2,12 @@
 <br><br>
 
 <% if(!user){ %>
+    <img src="<%= event.imgUrl%>" width="150px" height="150px">
       <h3><%= event.eventName %></h3>
       <h4><%= event.date %></h4>
       <p><%= event.description %></p>
 <% }else{ %>
-  <% if(event.imgUrl != 'uploads/default-profile.jpg') {%>
+    <% if(event.imgUrl != 'uploads/default-profile.jpg') {%>
       <img src="/uploads/<%= event.imgUrl %>" width="150" height="150">
     <%}else{%>
       <img src="<%= event.imgUrl%>" width="150px" height="150px">
@@ -15,11 +16,12 @@
         <h4><%= event.date %></h4>
         <p><%= event.description %></p>
         <p><%= event.creator %></p>
+    <% if (user._id.equals(event.creator._id)) {%>
         <a href="/events/<%= event._id %>/edit/">Edit Event</a>
         <form action="/events/<%= event._id %>/delete" method="POST">
          <button type="submit">Borrar Evento</button>
        </form>
-
+    <% } %>
       <br>
       <form action="/events/join/<%= event._id %>" method="POST">
        <button type="submit">Join</button>
