@@ -34,9 +34,6 @@ eventsRoutes.post('/events/create', [ensureLoggedIn('/auth/login'), upload.singl
 eventsRoutes.get('/events/list', (req, res, next) => {
   Event.find().populate("creator")
     .then(result => {
-      console.log("8========D---3  entrando");
-      console.log(result);
-      console.log(req.user);
       res.render('events/list', {events:result , user: req.user});
     })
     .catch(err => next (err));
@@ -133,7 +130,6 @@ eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (r
       .populate('eventId')
       .populate('userId')
       .then(join =>{
-        console.log('8=========3'+ join);
         res.render('events/join-ok', {join});
       })
       .catch(err => next(err));
@@ -141,7 +137,7 @@ eventsRoutes.get('/events/join/myevent/:id', [ensureLoggedIn('/auth/login')], (r
 
 // Unjoin user to event
 
-eventsRoutes.post('/events/join/:id/delete'), [ensureLoggedIn('/auth/login')], (req, res, next) =>{
+eventsRoutes.post('/events/join/myevent/:id/delete'), [ensureLoggedIn('/auth/login')], (req, res, next) =>{
     const id = req.params.id;
     Event.findByIdAndRemove(id)
     .then(event => res.redirect('/events/details'))
@@ -155,7 +151,6 @@ eventsRoutes.get('/events/unjoin/myevent/:id', [ensureLoggedIn('/auth/login')], 
       .populate('eventId')
       .populate('userId')
       .then(join =>{
-        console.log('8=========3'+ join);
         res.render('/events/details', {join});
       })
       .catch(err => next(err));
