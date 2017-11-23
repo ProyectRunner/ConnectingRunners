@@ -140,7 +140,7 @@ eventsRoutes.get('/events/unjoin/myevent/:id', [ensureLoggedIn('/auth/login')], 
       .populate('eventId')
       .populate('userId')
       .then(join =>{
-        res.render('events/details', {join});
+        res.render('events/list', {join});
       })
       .catch(err => next(err));
 });
