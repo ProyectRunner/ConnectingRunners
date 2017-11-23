@@ -11,3 +11,15 @@ a {
 .login{
   color: black;
 }
+
+.home-img{
+  width: 100%;
+  height: 450px;
+  background-image: url('../images/madrid-panoramica.jpg');
+  background-position: center;
+  filter: opacity(.8);
+  background-size: auto;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
