@@ -1,8 +1,13 @@
-#map {
+.mapa-home {
   height: 400px;
-  width: 800px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
-
+.mapa-detalle {
+  height: 400px;
+  width: 400px;
+}
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;

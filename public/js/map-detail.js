@@ -11,7 +11,7 @@ var eventPosition = {lat: mapevent.lat, lng: mapevent.log};
     position: eventPosition,
     map: map,
     icon: ("/images/favicon.ico"),
-    title: 'Hello World!'
+    title: 'Connecting Runners Event'
   });
 }
 initMap();
