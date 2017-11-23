@@ -46,7 +46,9 @@ function initMap() {
     }
 
     marker.setPosition(place.geometry.location);
-    // marker.setVisible(true);
+    document.getElementById('lat').value = place.geometry.location.lat();
+    document.getElementById('log').value = place.geometry.location.lng();
+    marker.setVisible(true);
 
     var address = '';
     if (place.address_components) {
@@ -56,6 +58,7 @@ function initMap() {
         (place.address_components[2] && place.address_components[2].short_name || '')
       ].join(' ');
     }
+
 
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
     infowindow.open(map, marker);
