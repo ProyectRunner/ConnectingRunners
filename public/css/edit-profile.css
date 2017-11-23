@@ -37,9 +37,7 @@ form.edit-profile input[type="text"], form.edit-profile input[type="password"], 
     letter-spacing: 1px;
     margin-bottom: 5px;
     color: grey;
-
 }
-
 
 form.edit-profile input[type="submit"]{
     width: 100%;

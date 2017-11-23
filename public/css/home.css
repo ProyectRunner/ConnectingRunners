@@ -71,7 +71,7 @@ a:hover {
   }
 
   .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    width: 100%;
   }
 }
 
