@@ -1,14 +1,34 @@
-<nav>
-  <a href="/"><h2> Connecting Runners</h2></a>
-  <% if(!user){ %>
-    <a class="login" href="/auth/signup">Signup</a> |
-    <a class="login" href="/auth/login">Login</a> |
-    <a class="login" href="/events/list">Ver Eventos</a> |
-  <% }else{ %>
-    <p style="color: green"><b>Hola <%= user.username %>!</b></p>
-    <a class="profile"href="/profile">Perfil</a> |
-    <a class="login"href="/auth/logout">Salir</a> |
-    <a class="login" href="/events/create">Crear Eventos</a> |
-    <a class="login" href="/events/list">Ver Eventos</a>
-  <% } %>
+<nav class="nav-bar">
+  <div class="horz-center nav-container">
+    <div class="floated logo"><a href="/">Connecting Running</a></div>
+
+    <ul class="floated nav-div">
+      <li class="rela-inline menu-toggle">•••</li>
+    </ul>
+    <ul class="floated right nav-div sign-div">
+    <% if(!user){ %>
+      <li class="rela-inline"><a href="/auth/signup">Sign-Up</a></li>
+      <li class="rela-inline"><a href="/auth/login">Sign-In</a></li>
+      <% }else{ %>
+      <li class="rela-inline"><a href="/events/list">Eventos</a></li>
+      <li class="rela-inline"><a href="/profile">Perfil</a></li>
+      <% } %>
+    </ul>
+    <div class="menu-card">
+      <div class="abs-center menu-background"></div>
+      <div class="menu-content">
+        <ul class="menu-links">
+          <li class="rela-block"><a href="/events/list">Ver Eventos</a></li>
+          <li class="rela-block"><a href="/events/create">Crear Eventos</a></li>
+          <% if(user){ %>
+              <li class="rela-block"><a href="/profile">Perfil</a></li>
+              <li class="rela-block"><a href="/auth/logout">Salir</a></li>
+            <% }else{ %>
+          <li class="rela-block"><a href="/auth/signup">Sign-Up</a></li>
+          <li class="rela-block"><a href="/auth/login">Sign-In</a></li>
+      <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </nav>
