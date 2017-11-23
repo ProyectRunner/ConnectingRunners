@@ -92,7 +92,7 @@ eventsRoutes.post('/events/:id/edit/event', [ensureLoggedIn('/auth/login'), uplo
   .then(event => res.redirect(`/events/${req.params.id}`))
   .catch(err => {
     console.log(err);
-    res.render('events/edit', {
+    res.render('/events/edit', {
       event:updates,
       error: e.message
     });
