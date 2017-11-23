@@ -16,19 +16,20 @@ p.form-title
     font-weight: 600;
     text-align: center;
     color: #2aabd2;
-    margin-top: 5%;
+    margin-top: 0%;
     text-transform: uppercase;
     letter-spacing: 4px;
 }
 
 form
 {
-    width: 400px;
+    width: 550px;
     margin: 0 auto;
 }
 
-form.login input[type="text"], form.login input[type="password"]
+form.signup input[type="text"], form.signup input[type="password"], form.signup label[type="text"], form.signup select[type="text"], form.signup input[type="file"]
 {
+
     width: 100%;
     margin: 0;
     padding: 5px 10px;
@@ -44,7 +45,8 @@ form.login input[type="text"], form.login input[type="password"]
 
 }
 
-form.login input[type="submit"]
+
+form.signup input[type="submit"]
 {
     width: 100%;
     font-size: 14px;
@@ -54,7 +56,7 @@ form.login input[type="submit"]
     letter-spacing: 1px;
 }
 
-form.login label, form.login a
+form.signup label, form.signup a
 {
     font-size: 12px;
     font-weight: 400;
@@ -62,7 +64,7 @@ form.login label, form.login a
 }
 
 
-form.login a:hover
+form.signup a:hover
 {
     color: #2aabd2;
 }

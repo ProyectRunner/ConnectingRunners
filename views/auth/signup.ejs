@@ -1,26 +1,20 @@
-<br>
 
-<form action="/auth/signup" method="post" id="form-container" enctype="multipart/form-data">
-  <div>
-    <label for="name">Nombre:</label><br>
-    <input id="name" type="text" name="name" placeholder="Usain Bolt">
-    <br><br>
-
-    <label for="username">Usuario:</label><br>
-    <input id="username" type="text" name="username" placeholder="Lightning Bolt">
-
-    <br><br>
-    <label for="mail">E-mail:</label><br>
-    <input id="mail" type="text" name="email" placeholder="usain@bolt.com">
-    <br><br>
-
-    <label for="password">Contraseña:</label><br>
-    <input id="password" type="password" name="password" placeholder="Shhhh...">
-    <br><br>
-
-    <label for="objective" >Objetivo:</label><br>
-    <select name="objective">
-      <option value="" disabled selected >Seleccionar objetivo</option>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrap">
+        <p class="form-title">Signup</p>
+        <form action="/auth/signup" method="POST" class="signup">
+          <input id="name" type="text" name="name" placeholder="Nombre">
+          <input id="username" type="text" name="username" placeholder="Usuario">
+          <input id="mail" type="text" name="email" placeholder="E-mail">
+          <input id="password" type="password" name="password" placeholder="Contraseña">
+          <input id="aboutMe" type="text" name="aboutMe" placeholder="Acerca de ti">
+          <input id="city" type="text" name="city" placeholder="Ciudad">
+          <br>
+          <!--<label type="text" for="objective" >Objetivo:</label><br>-->
+          <select type="text" name="objective">
+      <option type="text" value="" disabled selected >Seleccionar Objetivo</option>
       <option value="empezar a correr">Empezar a correr</option>
       <option value="10K">10K</option>
       <option value="media maratón">Medio maratón</option>
@@ -28,26 +22,18 @@
       <option value="trail">Trail</option>
       <option value="correr por diversión">Diversión</option>
     </select>
-    <br><br>
-
-    <label for="aboutMe">Cuéntanos sobre ti:</label><br>
-    <input id="aboutMe" type="aboutMe" name="aboutMe" placeholder="Sprinter">
-    <br><br>
-
-    <label for="city">Ciudad:</label><br>
-    <input id="city" type="city" name="city" placeholder="Madrid">
-    <br><br>
-
-    <input type="file" name="imgUrl">
-    <br><br>
-
-    <div id="create">
-    <button>Crear cuenta</button>
+          <br>
+          <input type="file" name="imgUrl">
+          <input type="submit" value="Sign up" class="btn btn-lg btn-info btn-sm" />
+          <div class="check-signup">
+            <p class="account-message">
+              Ya tienes una cuenta?
+              <a class="click" href="/auth/login">Login |</a>
+              <a class="click" href="/">Regresar</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
-
-
-    <p>Ya tienes una cuenta? <a href="/auth/login">Login</a> <a class="click" href="/">Regresar</a></p>
-
-
   </div>
-</form>
+</div>
