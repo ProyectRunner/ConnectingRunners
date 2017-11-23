@@ -4,9 +4,6 @@
 <% if(!user){ %>
     <img src="/uploads/<%= event.imgUrl %>" width="150px" height="150px">
       <h3><%= event.eventName %></h3>
-      <h4><%= event.date %></h4>
-      <p><%= event.description %></p>
-      <p>Creado por: <%= event.creator.name %></p>
 <% }else{ %>
     <% if(event.imgUrl != 'uploads/default-profile.jpg') {%>
       <img src="/uploads/<%= event.imgUrl %>" width="150" height="150">
@@ -28,5 +25,14 @@
        <button type="submit">Join</button>
      </form>
 
+<div id="map" class="mapa-detalle"></div>
+
 
 <% } %>
+
+<script type="text/javascript">
+    var mapevent = <%- JSON.stringify(event) %>;
+   </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrn9FTK0uiQlttKlDCZ14IThSMc1007E&libraries=places&callback=initMap"></script>
+<script type="text/javascript" src="/js/map-detail.js"></script>
