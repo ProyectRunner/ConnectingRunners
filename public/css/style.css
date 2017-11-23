@@ -1,25 +1,87 @@
-body {
-  padding: 0;
-  margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
 .login{
   color: black;
 }
 
-.home-img{
-  width: 100%;
-  height: 450px;
-  background-image: url('../images/madrid-panoramica.jpg');
-  background-position: center;
-  filter: opacity(.8);
-  background-size: auto;
-  color: white;
+a:hover {
+  color: grey;
+}
+
+/* Custom default button */
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  background-color: #fff;
+}
+html,
+body {
+/*css for full size background image*/
+  background: url(http://www.recordrentacar.com/images/beforefooter/destinos/alquiler-coches-madrid.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  color: #fff;
   text-align: center;
-  vertical-align: middle;
+}
+
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+
+.site-wrapper-inner {
+  display: table-cell;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+
+}
+.iniciar{
+    color:white;
+}
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+.eventos {
+  background-color: white;
+  color: black;
+  text-align: left;
+  height: 60px;
+  padding-top: 2px;
+  padding-bottom: 100px;
+}
+
+/*.crear-eventos-home{
+  text-align: right;
+}*/
+.mastfoot {
+  color: #999;
+  color: rgba(255,255,255,.5);
+}
+
+@media (min-width: 768px) {
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
 }
