@@ -15,7 +15,7 @@
         <p><%= event.description %></p>
         <p>Creado por: <%= event.creator.name %></p>
     <% if (user._id.equals(event.creator._id)) {%>
-        <a href="/events/<%= event._id %>/edit/event">Edit Event</a>
+        <a href="/events/<%= event._id %>/edit/">Edit Event</a>
         <form action="/events/<%= event._id %>/delete" method="POST">
          <button type="submit">Borrar Evento</button>
        </form>
