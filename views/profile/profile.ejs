@@ -1,10 +1,10 @@
 <div class="rela-block container">
   <div class="rela-block profile-card">
-    <div class="profile-pic" id="profile_pic">
+    <div id="profile_pic">
       <% if(user.imgUrl != 'uploads/default-profile.jpg') {%>
-        <img src="uploads/<%= user.imgUrl%>" width="150px" height="150px">
+        <img class="profile-pic profile-pic-size" src="uploads/<%= user.imgUrl%>" width="150px" height="150px">
       <%}else{%>
-        <img src="<%= user.imgUrl%>" width="150px" height="150px">
+        <img class="profile-pic profile-pic-size" src="<%= user.imgUrl%>" width="150px" height="150px">
       <%}%>
     </div>
     <div class="rela-block profile-name-container">
