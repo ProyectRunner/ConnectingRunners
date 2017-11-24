@@ -19,7 +19,7 @@ authRoutes.post('/signup', upload.single('imgUrl'), passport.authenticate('local
 authRoutes.get('/login',ensureLogin.ensureLoggedOut('/'), AuthController.login);
 authRoutes.post('/login', passport.authenticate('local-login', {
   successRedirect : '/',
-  failureRedirect : '/auth/login'
+  failureRedirect : '/auth/login',
 }));
 
 authRoutes.get("/logout", AuthController.logout);
