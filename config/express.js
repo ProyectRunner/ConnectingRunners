@@ -8,6 +8,7 @@ const layouts = require('express-ejs-layouts');
 const config = require('./config.js');
 const mongoose = require('mongoose');
 const path = require('path');
+const ejsLint = require('ejs-lint');
 
 module.exports = function(app) {
 

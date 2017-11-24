@@ -240,7 +240,7 @@ body {
 }
 .sign-div {
   margin: 0px;
-  width: 300px;
+  width: 320px;
   -webkit-transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.15s 0.3s cubic-bezier(0.75, 0, 0.2, 1);
   transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.15s 0.3s cubic-bezier(0.75, 0, 0.2, 1);
 }
@@ -252,28 +252,6 @@ body {
   opacity: 0;
   -webkit-transition: 0.15s cubic-bezier(0.75, 0, 0.2, 1), width 0.3s 0.15s cubic-bezier(0.75, 0, 0.2, 1);
   transition: 0.15s cubic-bezier(0.75, 0, 0.2, 1), width 0.3s 0.15s cubic-bezier(0.75, 0, 0.2, 1);
-}
-.icon {
-  height: 40px;
-  width: 40px;
-  margin: 0 6px;
-  vertical-align: middle;
-  cursor: pointer;
-  background-size: 30px !important;
-}
-.icon.search-icon {
-  background: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-128.png") no-repeat;
-  background-position: 3px 3px;
-}
-.nav-search {
-  font-family: "Roboto";
-  font-size: 16px;
-  letter-spacing: 0px;
-  font-weight: 400;
-  line-height: 20px;
-  border: none;
-  border-bottom: 1px solid #999;
-  width: 0px;
 }
 .nav-search:focus {
   outline: none;
@@ -379,9 +357,16 @@ body {
   background-color: #fff;
   box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
 }
+.event-card{
+  width: calc(100% - 40px);
+  padding-top: 20px;
+  margin:     margin: 0px auto;
+  background-color: #fff;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
+}
 
 .event-pic-size{
-  top: 50px;
+  top: 20%;
   left: 0;
 }
 
@@ -465,14 +450,13 @@ body {
   margin: 0px;
   border: 0px solid #fff;
 }
+
 .button {
   font-family: 'Montserrat';
   font-size: 14px;
   letter-spacing: 4px;
   font-weight: 900;
   line-height: 20px;
-  min-width: 200px;
-  padding: 20px 40px;
   color: #444;
   text-align: center;
   text-transform: uppercase;
@@ -491,6 +475,15 @@ body {
 .button.inactive:hover {
   color: #bbb;
   border: 1px solid #bbb;
+}
+.btn-detail{
+  min-width: 200px;
+padding: 20px 40px;
+}
+.btn-delete{
+  min-width: 100px;
+  padding: 5px 20px;
+  float: right;
 }
 .footer {
   min-height: 240px;
