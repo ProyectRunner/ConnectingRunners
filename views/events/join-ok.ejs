@@ -33,6 +33,7 @@
             <div id="map" class="mapa-detalle"></div>
 
             <h2 class="form-title title-eve">Participantes de Evento</h2>
+            <p><%= join.userId.name %></p>
 
             <form action='/events/join/myevent/<%= join._id %>/delete' method="POST">
               <button type="submit">Baja del evento :(</button>
