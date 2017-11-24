@@ -1,10 +1,6 @@
 <a href="/events/list">Ver más eventos</a>
 <br><br>
 
-<form action='/events/join/myevent/<%= join._id %>/delete' method="POST">
-  <button type="submit">Baja del evento :(</button>
-</form>
-
 <h2 class="form-title title-eve">¡Enhorabuena! No olvides tus zapas ;)</h2>
 
 <div class="rela-block container container-eve">
@@ -46,6 +42,10 @@
             <div id="map" class="mapa-detalle"></div>
 
             <h2 class="form-title title-eve">Participantes de Evento</h2>
+
+            <form action='/events/join/myevent/<%= join._id %>/delete' method="POST">
+              <button type="submit">Baja del evento :(</button>
+            </form>
       </div>
     </div>
   </div>

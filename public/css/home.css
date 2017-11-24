@@ -45,15 +45,22 @@ a:hover {
 .eventos-delahome {
   background-color: white;
   color: black;
-  text-align: left;
+  text-align: center;
   height: 60px;
   padding-top: 2px;
   padding-bottom: 100px;
 }
 
 .eventos-delahome a {
-  color: #2aabd2;
+  color: #FFF;
 }
+
+.crear-eventos-home{
+  color: #FFF;
+  text-decoration: none;
+
+}
+
 .eventos-delahome a:hover {
   color: grey;
 }
