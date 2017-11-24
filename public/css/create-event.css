@@ -24,7 +24,7 @@ form{
     margin: 0 auto;
 }
 
-form.signup input[type="text"], form.signup input[type="password"], form.signup select[type="text"], form.signup input[type="file"]{
+form.create-event input[type="text"], form.create-event input[type="password"], form.create-event select[type="text"], form.create-event input[type="file"], form.create-event input[type="date"]{
     width: 100%;
     margin: 0;
     padding: 5px 10px;
@@ -39,7 +39,7 @@ form.signup input[type="text"], form.signup input[type="password"], form.signup 
     color: grey;
 }
 
-form.signup button[type="submit"]{
+form.create-event button[type="submit"]{
     width: 100%;
     font-size: 14px;
     text-transform: uppercase;
@@ -48,16 +48,12 @@ form.signup button[type="submit"]{
     letter-spacing: 1px;
 }
 
-form.signup label, form.signup a{
+form.create-event label, form.create-event a{
     font-size: 12px;
     font-weight: 400;
     color: grey;
 }
 
-form.signup a:hover{
+form.create-event a:hover{
     color: #2aabd2;
-}
-
-input:-webkit-autofill{
-      background-color: #FFF!important;
 }

@@ -1,45 +1,34 @@
-<br><br>
-<form action="/profile/<%=user._id%>/edit" method="post" id="form-container" enctype="multipart/form-data">
-  <div>
-    <label for="name">Nombre:</label><br>
-    <input id="name" type="text" name="name" value="<%= user.name%>">
-    <br><br>
-
-    <label for="username">Usuario:</label><br>
-    <input id="username" type="text" name="username" value="<%= user.username%>">
-
-    <br><br>
-    <label for="mail">E-mail:</label><br>
-    <input id="mail" type="text" name="email" value="<%= user.email%>">
-    <br><br>
-
-    <label for="objective">Objetivo:</label><br>
-    <select name="objective">
-      <option value="" disabled selected>Seleccionar objetivo</option>
-      <option value="empezar a correr">Empezar a correr</option>
-      <option value="10K">10K</option>
-      <option value="media maratón">Medio maratón</option>
-      <option value="maratón">Maratón</option>
-      <option value="trail">Trail</option>
-      <option value="correr por diversión">Diversión</option>
-    </select>
-    <br><br>
-
-    <label for="aboutMe">Cuéntanos de ti:</label><br>
-    <input id="aboutMe" type="aboutMe" name="aboutMe" value="<%= user.aboutMe%>">
-    <br><br>
-
-    <label for="city">Ciudad:</label><br>
-    <input id="city" type="city" name="city" value="<%= user.city%>">
-    <br><br>
-
-    <input type="file" name="imgUrl">
-    <br><br>
-
-    <div id="update">
-    <button>Actualizar perfil</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrap">
+        <p class="form-title">Editar perfil</p>
+        <form action="/profile/<%=user._id%>/edit" method="post" class="edit-profile" id="form-container" enctype="multipart/form-data">
+          <input id="name" type="text" name="name" value="<%= user.name%>">
+          <input id="username" type="text" name="username" value="<%= user.username%>">
+          <input id="mail" type="text" name="email" value="<%= user.email%>">
+          <input id="aboutMe" type="text" name="aboutMe" value="<%= user.aboutMe%>">
+          <input id="city" type="text" name="city" value="<%= user.city%>">
+          <label for="objective"></label>
+          <select type="text" name="objective">
+            <option type="text" value="" disabled selected >Seleccionar Objetivo</option>
+            <option value="empezar a correr">Empezar a correr</option>
+            <option value="10K">10K</option>
+            <option value="media maratón">Medio maratón</option>
+            <option value="maratón">Maratón</option>
+            <option value="trail">Trail</option>
+            <option value="correr por diversión">Diversión</option>
+          </select>
+          <br>
+          <input type="file" name="imgUrl">
+          <button type="submit" value="Editar Perfil" class="btn btn-lg btn-info btn-sm"> EDITAR PERFIL</button>
+          <div class="check-edit-perfil">
+            <p class="account-message">
+              <a class="click" href="/profile">Regresar a perfil</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</form>
-<br>
-  <a href="/profile">Volver a perfil</a>
+</div>

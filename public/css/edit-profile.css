@@ -24,7 +24,7 @@ form{
     margin: 0 auto;
 }
 
-form.signup input[type="text"], form.signup input[type="password"], form.signup select[type="text"], form.signup input[type="file"]{
+form.edit-profile input[type="text"], form.edit-profile input[type="password"], form.edit-profile label[type="text"], form.edit-profile select[type="text"], form.edit-profile input[type="file"]{
     width: 100%;
     margin: 0;
     padding: 5px 10px;
@@ -39,7 +39,7 @@ form.signup input[type="text"], form.signup input[type="password"], form.signup 
     color: grey;
 }
 
-form.signup button[type="submit"]{
+form.edit-profile input[type="submit"]{
     width: 100%;
     font-size: 14px;
     text-transform: uppercase;
@@ -48,16 +48,13 @@ form.signup button[type="submit"]{
     letter-spacing: 1px;
 }
 
-form.signup label, form.signup a{
+form.edit-profile label, form.edit-profile a{
     font-size: 12px;
     font-weight: 400;
     color: grey;
 }
 
-form.signup a:hover{
-    color: #2aabd2;
-}
 
-input:-webkit-autofill{
-      background-color: #FFF!important;
+form.edit-profile a:hover{
+    color: #2aabd2;
 }
