@@ -1,22 +1,60 @@
 <a href="/events/list">Ver más eventos</a>
 <br><br>
 
-<h2>Te esperamos en el evento! No olvides tus zapas ;)</h2>
-  <ul>
-      <li>
-        <img src="/uploads/<%= join.eventId.imgUrl %>" width="150" height="150">
-        <h3><%= join.eventId.eventName %></h3>
-        <h4><%= join.eventId.date %></h4>
-        <p><%= join.eventId.description %></p>
-      </li>
-      <br><br>
-  </ul>
-<h2>Participantes de Evento</h2>
-<ul>
-  <li><%= join.userId.name %></li>
-</ul>
+<form action='/events/join/myevent/<%= join._id %>/delete' method="POST">
+  <button type="submit">Baja del evento :(</button>
+</form>
+
+<h2 class="form-title title-eve">¡Enhorabuena! No olvides tus zapas ;)</h2>
+
+<div class="rela-block container container-eve">
+  <div class="rela-block event-card">
+    <div id="profile_pic">
+
+      <img src="/uploads/<%= join.eventId.imgUrl %>" width="150" height="150">
+      <div class="rela-block profile-name-container">
+        <div class="rela-block user-name">
+          <h3><%= join.eventId.eventName %></h3></div>
+        <div class="rela-block user-desc">
+          <p>
+            <%= join.eventId.date %>
+          </p>
+        </div>
+      </div>
+      <div class="rela-block profile-name-container">
+        <div class="rela-block user-desc">
+          <p>Descripción:
+            <%= join.eventId.description %>
+          </p>
+        </div>
+        <div class="rela-block user-desc">
+          <p>Creado por:
+            <%= join.eventId.creator.name %>
+          </p>
+        </div>
+        <% if (user._id.equals(join.eventId.creator._id)) {%>
+          <a href="/events/<%= join.eventId._id %>/edit/">Edit Event</a>
+          <form action="/events/<%= join.eventId._id %>/delete" method="POST">
+            <button type="submit">Borrar Evento</button>
+          </form>
+          <% } %>
+            <br>
+            <form action="/events/join/<%= join.eventId._id %>" method="POST">
+              <button type="submit" class="btn btn-lg btn-info btn-sm">ME APUNTO AL EVENTO</button>
+            </form>
+
+            <div id="map" class="mapa-detalle"></div>
+
+            <h2 class="form-title title-eve">Participantes de Evento</h2>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  <form action='/events/join/myevent/<%=  join._id%>/delete' method="POST">
-   <button type="submit">Baja del evento :(</button>
- </form>
+            <script type="text/javascript">
+              var mapevent = <%- JSON.stringify(event) %>;
+            </script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrn9FTK0uiQlttKlDCZ14IThSMc1007E&libraries=places&callback=initMap"></script>
+            <script type="text/javascript" src="/js/map-detail.js"></script>

@@ -1,56 +1,81 @@
-<h2 class="form-title">Trae tus zapas! Los Runners te esperan :)</h2>
+<h2 class="form-title title-eve">Trae tus zapas! Los Runners te esperan :)</h2>
 
 <% if(!user){ %>
 
   <% events.forEach((event) => { %>
 
-  <div class="rela-block container container-eve">
-    <div class="rela-block event-card">
-      <div id="profile_pic">
+    <div class="rela-block container container-eve">
+      <div class="rela-block event-card">
+        <div id="profile_pic">
 
           <img class="profile-pic event-pic-size" src="/uploads/<%= event.imgUrl %>" width="150px" height="150px">
 
+        </div>
+        <div class="rela-block profile-name-container">
+          <div class="rela-block user-name">
+            <%= event.eventName %>
+          </div>
+          <div class="rela-block user-desc">
+            <%= event.date %>
+          </div>
+        </div>
+        <div class="rela-block profile-name-container">
+          <div class="rela-block user-desc">
+            <p>Descripción:
+              <%= event.description %>
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="rela-block profile-name-container">
-        <div class="rela-block user-name"><%= event.eventName %></div>
-        <div class="rela-block user-desc"><%= event.date %></div>
-      </div>
-      <div class="rela-block profile-name-container">
-        <div class="rela-block user-desc"><p>Descripción: <%= event.description %></p></div>
-      </div>
-    </div>
-  <% }) %>
+      <% }) %>
 
-<% }else{ %>
+        <% }else{ %>
+          <div class="rela-block container-eve">
+            <a href="/events/create"><button type="button" name="button" class="btn btn-lg btn-info btn-sm">Create Event</button></a>
+          </div>
 
-  <% events.forEach((event) => { %>
-
-  <div class="rela-block container container-eve">
-    <div class="rela-block event-card">
-      <div id="profile_pic">
-
-          <img class="profile-pic event-pic-size" src="/uploads/<%= event.imgUrl %>" width="150px" height="150px">
-
-      </div>
-      <div class="rela-block profile-name-container">
-          <div class="rela-inline button btn-detail"><a href="/events/create">Detalles del Evento</a></div>
-        <div class="rela-block user-name"><h3><%= event.eventName %></h3></div>
-        <div class="rela-block user-desc"><p><%= event.date %></p></div>
-      </div>
-      <div class="rela-block profile-name-container">
-        <div class="rela-block user-desc"><p>Descripción: <%= event.description %></p></div>
-        <div class="rela-block user-desc"><p>Creado por: <%= event.creator.name %></p></div>
+          <% events.forEach((event) => { %>
 
 
-          <% if (user._id.equals(event.creator._id)) { %>
+            <div class="rela-block container container-eve">
+              <div class="rela-block event-card">
+                <div id="profile_pic">
 
-            <a class="float" href="/events/<%= event._id %>/edit/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Event</a>
-            <form action="/events/<%= event._id %>/delete" method="POST">
-             <button class="button .btn-delete" type="submit"><i class="fa fa-trash" aria-hidden="true">  Borrar</i></button>
+                  <img class="profile-pic event-pic-size" src="/uploads/<%= event.imgUrl %>" width="150px" height="150px">
 
-           </form>
-        <% } %>
-      </div>
-    </div>
-  <% }) %>
-<% } %>
+                </div>
+                <div class="rela-block profile-name-container">
+                  <div class="rela-inline button btn-detail"><a href="/events/<%= event._id %>">Detalles del Evento</a></div>
+                  <div class="rela-block user-name">
+                    <h3><%= event.eventName %></h3></div>
+                  <div class="rela-block user-desc">
+                    <p>
+                      <%= event.date %>
+                    </p>
+                  </div>
+                </div>
+                <div class="rela-block profile-name-container">
+                  <div class="rela-block user-desc">
+                    <p>Descripción:
+                      <%= event.description %>
+                    </p>
+                  </div>
+                  <div class="rela-block user-desc">
+                    <p>Creado por:
+                      <%= event.creator.name %>
+                    </p>
+                  </div>
+
+
+                  <% if (user._id.equals(event.creator._id)) { %>
+
+                    <a class="float" href="/events/<%= event._id %>/edit/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Event</a>
+                    <form action="/events/<%= event._id %>/delete" method="POST">
+                      <button class="button .btn-delete" type="submit"><i class="fa fa-trash" aria-hidden="true">  Borrar</i></button>
+
+                    </form>
+                    <% } %>
+                </div>
+              </div>
+              <% }) %>
+                <% } %>

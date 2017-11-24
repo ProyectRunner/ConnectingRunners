@@ -7,6 +7,7 @@
 .mapa-detalle {
   height: 400px;
   width: 400px;
+  margin: 50px auto;
 }
 .controls {
   margin-top: 10px;
