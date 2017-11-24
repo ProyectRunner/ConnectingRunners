@@ -68,3 +68,7 @@ form.signup a:hover
 {
     color: #2aabd2;
 }
+
+input:-webkit-autofill{
+      background-color: #FFF!important;
+}
