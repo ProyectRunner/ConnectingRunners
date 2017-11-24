@@ -1,28 +1,24 @@
-<h2>Edita tu evento</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrap">
+        <p class="form-title">Edita tu evento</p>
 
-<form action="/events/<%= event._id %>/edit/event" method="POST" enctype="multipart/form-data">
-  <label for="eventName">Nombre del Evento</label><br>
-  <input type="text" id="eventName" name="eventName" value="<%= event.eventName %>">
-  <br><br>
-  <label for="date">Fecha</label><br>
-  <input type="date" name="date" id="date" value="<%= event.date %>">
-  <br><br>
-  <label for="description">Descripción</label><br>
-  <textarea type="text" name="description" id="description"><%= event.description %></textarea>
-  <br><br>
-  <label for="website">Sitio web (opcional)</label><br>
-  <input type="text" name="website" id="website" value="<%= event.website %>">
-  <br><br>
-  <label for="place">Lugar</label><br>
-  <textarea type="text" name="place" id="place" value="<%= event.place %>" ></textarea>
-  <br><br>
-  <label for="image-events">Imagen del Evento</label><br>
-  <input type="file" name="imgUrl" id="image-events" value="<%= event.imgUrl %>">
-  <br><br>
-  <input id="lat" name="lat" style="visibility:hidden" value="<%= event.lat %>">
-  <input id="log" name="log" style="visibility:hidden" value="<%= event.log %>">
-  <%- include('../partials/map-home') %>
-  <br><br>
-  <button type="submit">Editar Evento</button>
+        <form action="/events/<%= event._id %>/edit/event" method="POST" class="edit-event" enctype="multipart/form-data">
 
-</form>
+          <input id="eventName" type="text" name="eventName" value="<%= event.eventName %>">
+          <input id="date" type="date" name="date" value="<%= event.date %>">
+          <input id="description" type="text" name="description" value="<%= event.description %>">
+          <input id="website" type="text" name="website" value="<%= event.website %>">
+          <input type="text" name="place" id="place" value="<%= event.place %>" </input>
+          <input type="file" name="imgUrl" id="image-events" value="<%= event.imgUrl %>">
+          <input id="lat" name="lat" style="visibility:hidden" value="<%= event.lat %>">
+          <input id="log" name="log" style="visibility:hidden" value="<%= event.log %>">
+          <%- include('../partials/map-home') %>
+            <input type="submit" value="Editar Evento" class="btn btn-lg btn-info btn-sm" />
+            <br><br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

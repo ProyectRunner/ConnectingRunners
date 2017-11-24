@@ -39,7 +39,7 @@ form.login input[type="text"], form.login input[type="password"]{
     color: grey;
 }
 
-form.login input[type="submit"]{
+form.login button[type="submit"]{
     width: 100%;
     font-size: 14px;
     text-transform: uppercase;
