@@ -19,7 +19,7 @@
       </div>
       <div class="rela-block profile-name-container">
         <div class="rela-block user-desc">
-          <p>Descripción:
+          <p class="description">Descripción:
             <%= join.eventId.description %>
           </p>
         </div>
@@ -36,7 +36,7 @@
             <p><%= join.userId.name %></p>
 
             <form action='/events/join/myevent/<%= join._id %>/delete' method="POST">
-              <button type="submit">Baja del evento :(</button>
+              <button class="button .btn-delete" type="submit"><i class="fa fa-frown-o" aria-hidden="true"></i> Dar de baja</button>
             </form>
       </div>
     </div>
