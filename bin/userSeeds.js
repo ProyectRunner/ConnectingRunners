@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/dbCRunning');
+mongoose.connect('mongodb://admin:running1234@ds119736.mlab.com:19736/dbcrunning');
 const User = require('../models/User');
 const Comment = require('../models/Comment');
 const Event = require('../models/Event');

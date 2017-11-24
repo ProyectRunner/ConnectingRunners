@@ -135,7 +135,6 @@ eventsRoutes.post('/events/join/myevent/:id/delete', (req, res, next) =>{
 
 eventsRoutes.get('/events/unjoin/myevent/:id', ensureLoggedIn('/auth/login'), (req, res, next) =>{
     const joinId = req.params.id;
-
     RelUserEvent.findById(joinId)
       .populate('eventId')
       .populate('userId')
@@ -144,5 +143,6 @@ eventsRoutes.get('/events/unjoin/myevent/:id', ensureLoggedIn('/auth/login'), (r
       })
       .catch(err => next(err));
 });
+
 
 module.exports = eventsRoutes;
