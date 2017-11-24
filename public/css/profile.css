@@ -31,6 +31,7 @@
   bottom: ;
   float: left;
 }
+
 .floated.right {
   float: right;
 }
@@ -274,7 +275,7 @@ body {
   letter-spacing: 1px;
   font-weight: 400;
   line-height: 20px;
-  z-index: 15;
+  z-index: 50;
   height: 170px;
   width: 280px;
   overflow: hidden;
@@ -349,6 +350,9 @@ body {
   background-color: #f4f4f4;
   margin: 70px auto;
   padding: 70px 0;
+}
+.container-eve{
+  margin: 0px auto !important;
 }
 .profile-card {
   width: calc(100% - 40px);
@@ -478,12 +482,17 @@ body {
 }
 .btn-detail{
   min-width: 200px;
-padding: 20px 40px;
+  padding: 20px 40px;
+  margin-right: 10px;
 }
 .btn-delete{
   min-width: 100px;
   padding: 5px 20px;
   float: right;
+}
+.float{
+  float: left;
+  margin-left: 10px;
 }
 .footer {
   min-height: 240px;
