@@ -23,21 +23,12 @@
             <%= join.eventId.description %>
           </p>
         </div>
-        <div class="rela-block user-desc">
-          <p>Creado por:
-            <%= join.eventId.creator.name %>
-          </p>
-        </div>
         <% if (user._id.equals(join.eventId.creator._id)) {%>
           <a href="/events/<%= join.eventId._id %>/edit/">Edit Event</a>
           <form action="/events/<%= join.eventId._id %>/delete" method="POST">
             <button type="submit">Borrar Evento</button>
           </form>
           <% } %>
-            <br>
-            <form action="/events/join/<%= join.eventId._id %>" method="POST">
-              <button type="submit" class="btn btn-lg btn-info btn-sm">ME APUNTO AL EVENTO</button>
-            </form>
 
             <div id="map" class="mapa-detalle"></div>
 
