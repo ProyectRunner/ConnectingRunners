@@ -39,7 +39,7 @@ form.edit-profile input[type="text"], form.edit-profile input[type="password"], 
     color: grey;
 }
 
-form.edit-profile input[type="submit"]{
+form.edit-profile button[type="submit"]{
     width: 100%;
     font-size: 14px;
     text-transform: uppercase;
