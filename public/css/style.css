@@ -1,1 +1,9 @@
+.b-w {
+-webkit-filter: grayscale(60%);
+filter: grayscale(60%);
+}
 
+.b-w:hover{
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);  
+}
