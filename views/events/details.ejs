@@ -28,7 +28,7 @@
                 </div>
                 <div class="rela-block profile-name-container">
                   <div class="rela-block user-desc">
-                    <p>Descripción:
+                    <p class="description">Descripción:
                       <%= event.description %>
                     </p>
                   </div>
@@ -37,12 +37,6 @@
                       <%= event.creator.name %>
                     </p>
                   </div>
-                  <% if (user._id.equals(event.creator._id)) {%>
-                    <a href="/events/<%= event._id %>/edit/">Edit Event</a>
-                    <form action="/events/<%= event._id %>/delete" method="POST">
-                      <button type="submit">Borrar Evento</button>
-                    </form>
-                    <% } %>
                       <br>
                       <form action="/events/join/<%= event._id %>" method="POST">
                         <button type="submit" class="btn btn-lg btn-info btn-sm">ME APUNTO AL EVENTO</button>
@@ -50,12 +44,22 @@
 
                       <div id="map" class="mapa-detalle"></div>
 
+                      <% if (user._id.equals(event.creator._id)) {%>
+                          <a class="float" href="/events/<%= event._id %>/edit/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Event</a>
+                          <form class="boton-detalle" action="/events/<%= event._id %>/delete" method="POST">
+                            <button class="button .btn-delete" type="submit"><i class="fa fa-trash" aria-hidden="true">  Borrar</i></button>
+                          </form>
+                        <% } %>
 
                       <% } %>
 
+                  </div>
                         <script type="text/javascript">
                           var mapevent = <%- JSON.stringify(event) %>;
                         </script>
 
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrn9FTK0uiQlttKlDCZ14IThSMc1007E&libraries=places&callback=initMap"></script>
                         <script type="text/javascript" src="/js/map-detail.js"></script>
+  </div>
+    </div>
+      </div>

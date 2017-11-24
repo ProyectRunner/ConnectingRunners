@@ -36,7 +36,9 @@ a:hover {
     color:white;
 }
 .cover {
-  padding: 0 20px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 2px -5px 20px rgba(0,0,0,0.4), 2px 5px 20px rgba(0,0,0,0.4);
 }
 .cover .btn-lg {
   padding: 10px 20px;
@@ -65,9 +67,11 @@ a:hover {
   color: grey;
 }
 .mastfoot {
-  margin-top: 40px;
-  color: #999;
-  color: rgba(255,255,255,.5);
+  margin-bottom: 50px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  width: 100%;
+  top: 600px;
 }
 
 @media (min-width: 768px) {
@@ -85,6 +89,6 @@ a:hover {
 @media (min-width: 992px) {
   .mastfoot,
   .cover-container {
-    width: 700px;
+    width: 900px;
   }
 }

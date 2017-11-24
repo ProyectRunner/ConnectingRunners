@@ -56,7 +56,7 @@
                 </div>
                 <div class="rela-block profile-name-container">
                   <div class="rela-block user-desc">
-                    <p>Descripción:
+                    <p class="description">Descripción:
                       <%= event.description %>
                     </p>
                   </div>
@@ -71,7 +71,6 @@
                     <a class="float" href="/events/<%= event._id %>/edit/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Event</a>
                     <form action="/events/<%= event._id %>/delete" method="POST">
                       <button class="button .btn-delete" type="submit"><i class="fa fa-trash" aria-hidden="true">  Borrar</i></button>
-
                     </form>
                     <% } %>
                 </div>

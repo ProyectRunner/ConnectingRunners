@@ -14,6 +14,7 @@ router.get('/:id/edit', (req, res, next) => {
   });
 
 router.post('/profile/:id/edit', [ensureLoggedIn('/auth/login'), upload.single('imgUrl')], (req, res, next) => {
+
   const { name, username, email, objectives, aboutMe, city} = req.body;
   let imgUrl = '';
   if (req.file) {

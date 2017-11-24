@@ -1,9 +1,7 @@
-.b-w {
--webkit-filter: grayscale(60%);
-filter: grayscale(60%);
+.description{
+  padding: 0 110px;
 }
 
-.b-w:hover{
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);  
+.boton-detalle{
+  width: 200px;
 }

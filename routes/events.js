@@ -54,7 +54,6 @@ eventsRoutes.get('/events/:id', (req, res, next) => {
 
 // Edit events
 
-
 eventsRoutes.get('/events/:id/edit', ensureLoggedIn('/auth/login'), (req, res, next) => {
   Event.findById(req.params.id)
   .then(event =>{
@@ -63,14 +62,13 @@ eventsRoutes.get('/events/:id/edit', ensureLoggedIn('/auth/login'), (req, res, n
   .catch(err => next(err));
 });
 
-
 eventsRoutes.post('/events/:id/edit/event', [ensureLoggedIn('/auth/login'), upload.single('imgUrl')], (req, res, next) => {
   const {eventName, description, date, website, place, lat, log} = req.body;
   let imgUrl = '';
-  if (req.file) {
+  if (req.file !== undefined) {
     imgUrl = req.file.filename;
   } else {
-    imgUrl = res.locals.user.imgUrl;
+    imgUrl = req.body.imgUrl;
   }
   const updates = {
     eventName, description, date, website, place, lat, log, imgUrl};
